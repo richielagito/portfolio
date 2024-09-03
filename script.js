@@ -1,8 +1,11 @@
 window.onload = function () {
   const activePages = window.location.pathname;
+  const homeNav = document.querySelectorAll(".home-nav");
   const navLinks = document.querySelectorAll(".navbar a").forEach((link) => {
     if (link.href.includes(`${activePages}`)) {
       link.classList.add("active");
+    } else {
+      homeNav.classList.add("active");
     }
   });
   const menu_btn = document.querySelector(".hamburger");
