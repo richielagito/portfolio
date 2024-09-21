@@ -2,8 +2,8 @@ window.onload = function () {
   const activePages = window.location.pathname;
   const homeNav = document.querySelectorAll(".home-nav");
   const navLinks = document.querySelectorAll(".navbar a").forEach((link) => {
+    console.log(link.href);
     if (link.href == '/') {
-      console.log(link.href);
       homeNav.classList.add("active");
     } else if (link.href.includes(`${activePages}`)) {
       link.classList.add("active");
