@@ -3,6 +3,7 @@ window.onload = function () {
   const homeNav = document.querySelectorAll(".home-nav");
   const navLinks = document.querySelectorAll(".navbar a").forEach((link) => {
     if (link.href == '/') {
+      console.log(link.href);
       homeNav.classList.add("active");
     } else if (link.href.includes(`${activePages}`)) {
       link.classList.add("active");
