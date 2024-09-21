@@ -1,6 +1,6 @@
 window.onload = function () {
   const activePages = window.location.pathname;
-  const homeNav = document.querySelector("a .home-nav");
+  const homeNav = document.querySelector(".home-nav");
   const navLinks = document.querySelectorAll(".navbar a").forEach((link) => {
     console.log(activePages);
     if (activePages == '/') {
