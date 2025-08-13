@@ -1,4 +1,3 @@
-import LiquidChrome from "./LiquidChrome.jsx";
 import Beams from "./Beams.jsx";
 import TextType from "./TextType.jsx";
 
