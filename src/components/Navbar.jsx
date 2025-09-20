@@ -23,14 +23,14 @@ const Navbar = () => {
                     <img src="logoRL.svg" width="30" height="30" alt="logo" />
                 </a>
                 <div className="hidden md:flex space-x-8">
-                    <a href="#proyek" className="hover:opacity-100 text-white opacity-70 transition-opacity">
-                        Proyek
+                    <a href="#projects" className="hover:opacity-100 text-white opacity-70 transition-opacity">
+                        Projects
                     </a>
-                    <a href="#tentang" className="hover:opacity-100 text-white opacity-70 transition-opacity">
-                        Tentang Saya
+                    <a href="#about" className="hover:opacity-100 text-white opacity-70 transition-opacity">
+                        About Me
                     </a>
-                    <a href="#kontak" className="hover:opacity-100 text-white opacity-70 transition-opacity">
-                        Kontak
+                    <a href="#contact" className="hover:opacity-100 text-white opacity-70 transition-opacity">
+                        Contact
                     </a>
                 </div>
             </div>

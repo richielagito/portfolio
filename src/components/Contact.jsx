@@ -1,12 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { far } from "@fortawesome/free-regular-svg-icons";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-library.add(fas, far, fab);
 
 const Contact = () => (
-    <section id="kontak" className="text-center mb-20 ">
+    <section id="contact" className="text-center mb-20 ">
         <div data-aos="fade-up">
             <h2 className="text-3xl font-bold mb-4 text-white">Got something in mind?</h2>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">I’m always open to collaborations, new ideas, and projects that push creative boundaries. Let's talk!</p>

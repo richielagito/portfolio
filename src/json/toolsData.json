@@ -1,0 +1,16 @@
+[
+    { "name": "React", "icon": "faReact", "color": "#61DAFB" },
+    { "name": "JavaScript", "icon": "faJs", "color": "#F7DF1E" },
+    { "name": "HTML5", "icon": "faHtml5", "color": "#E34F26" },
+    { "name": "CSS3", "icon": "faCss3Alt", "color": "#1572B6" },
+    { "name": "Figma", "icon": "faFigma", "color": "#F24E1E" },
+    { "name": "Git", "icon": "faGitAlt", "color": "#F05032" },
+    { "name": "Node.js", "icon": "faNodeJs", "color": "#339933" },
+    { "name": "Python", "icon": "faPython", "color": "#3776AB" },
+    { "name": "Bootstrap", "icon": "faBootstrap", "color": "#7952B3" },
+    { "name": "Tailwind", "icon": "faCss3Alt", "color": "#38B2AC" },
+    { "name": "TypeScript", "icon": "faJs", "color": "#3178C6" },
+    { "name": "Angular", "icon": "faAngular", "color": "#DD0031" },
+    { "name": "SQL", "icon": "faDatabase", "color": "#47A248" },
+    { "name": "NoSQL", "icon": "faDatabase", "color": "#47A248" }
+]

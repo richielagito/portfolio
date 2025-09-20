@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title": "Outfitology",
+        "description": "Outfitology is a web app that provides outfit inspiration based on user preferences and current fashion trends.",
+        "imageUrl": "outfitology.png",
+        "webUrl": "https://outfitology-frontend.pages.dev"
+    },
+    {
+        "id": 2,
+        "title": "UploadItIn",
+        "description": "UploadItIn is a website build to grade essay more efficient, fast, and accurate.",
+        "imageUrl": "uploaditin.png",
+        "webUrl": "https://uploaditin-production.up.railway.app/"
+    }
+]

@@ -6,6 +6,8 @@ import Projects from "./components/Projects.jsx";
 import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
+import ToolsAndFrameworks from "./components/TnF.jsx";
+import "./fontawesome.js";
 
 function App() {
     useEffect(() => {
@@ -56,6 +58,7 @@ function App() {
                     {/* Container ini memusatkan semua konten di dalamnya */}
                     <main className="container mx-auto px-6 py-20 max-w-5xl">
                         <About />
+                        <ToolsAndFrameworks />
                         <Projects />
                         <Contact />
                     </main>
