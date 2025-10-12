@@ -7,12 +7,42 @@ import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import ToolsAndFrameworks from "./components/TnF.jsx";
+import Experiences from "./components/Experiences.jsx";
 import "./fontawesome.js";
 
 function App() {
-    useEffect(() => {
-        // --- Memuat dan Menginisialisasi AOS dari CDN ---
+    const items = [
+        {
+            label: "About",
+            bgColor: "#0D0716",
+            textColor: "#fff",
+            links: [
+                { label: "Company", ariaLabel: "About Company" },
+                { label: "Careers", ariaLabel: "About Careers" },
+            ],
+        },
+        {
+            label: "Projects",
+            bgColor: "#170D27",
+            textColor: "#fff",
+            links: [
+                { label: "Featured", ariaLabel: "Featured Projects" },
+                { label: "Case Studies", ariaLabel: "Project Case Studies" },
+            ],
+        },
+        {
+            label: "Contact",
+            bgColor: "#271E37",
+            textColor: "#fff",
+            links: [
+                { label: "Email", ariaLabel: "Email us" },
+                { label: "Twitter", ariaLabel: "Twitter" },
+                { label: "LinkedIn", ariaLabel: "LinkedIn" },
+            ],
+        },
+    ];
 
+    useEffect(() => {
         // 1. Memuat file CSS AOS
         const link = document.createElement("link");
         link.rel = "stylesheet";
@@ -36,7 +66,6 @@ function App() {
 
         document.body.appendChild(script);
 
-        // 4. Fungsi cleanup untuk menghapus script dan link saat komponen tidak lagi digunakan
         return () => {
             if (document.head.contains(link)) {
                 document.head.removeChild(link);
@@ -53,11 +82,10 @@ function App() {
                 <Navbar />
                 <Header />
 
-                {/* Wrapper untuk section dengan background gelap, ini akan full-width */}
                 <div className="bg-black text-gray-800">
-                    {/* Container ini memusatkan semua konten di dalamnya */}
-                    <main className="container mx-auto px-6 py-20 max-w-5xl">
+                    <main className="container mx-auto px-6 py-20 w-[90%] max-w-5xl">
                         <About />
+                        <Experiences />
                         <ToolsAndFrameworks />
                         <Projects />
                         <Contact />
