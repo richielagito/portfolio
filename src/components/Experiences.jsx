@@ -30,9 +30,9 @@ const Experiences = () => {
 
     return (
         <section id="experiences" className="mb-40">
-            <h2 className="text-3xl font-bold text-center mb-16 text-white">Experience</h2>
+            <h2 className="text-3xl font-bold text-center mb-16 text-white">My Experiences</h2>
 
-            <div ref={timelineRef} className="relative container mx-auto px-6 flex flex-col space-y-12">
+            <div ref={timelineRef} className="relative container mx-auto flex flex-col space-y-12">
                 <div className="absolute z-0 w-1 left-4 md:left-1/2 -translate-x-1/2 top-2 bottom-2">
                     <div className="h-full w-full bg-white/10 rounded-full"></div>
                     <div
@@ -56,16 +56,12 @@ const Experiences = () => {
                             <p className="text-indigo-300 text-sm font-semibold">{exp.date}</p>
                             <h3 className="text-xl font-bold text-white mt-1">{exp.role}</h3>
                             <p className="text-white/80 text-md mb-3">{exp.company}</p>
-                            <ul
+                            <p
                                 className={`list-disc list-inside text-white/70 
                                             ${index % 2 === 0 ? "text-left" : "md:text-right md:list-none"}`}
                             >
-                                {exp.description.map((desc, i) => (
-                                    <li key={i} className="mb-2">
-                                        {desc}
-                                    </li>
-                                ))}
-                            </ul>
+                                <span className="mb-2">{exp.description}</span>
+                            </p>
                         </div>
                     </div>
                 ))}

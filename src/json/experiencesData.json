@@ -4,31 +4,20 @@
         "date": "2025 - 2025",
         "role": "Fullstack Developer Intern",
         "company": "Pusat Data Dan Teknologi Informasi UNTAR",
-        "description": [
-            "Contributed to the development of LINTAR, an academic management system used across all faculties at Tarumanagara University.",
-            "Redesigned and modernized legacy system interfaces to be more responsive, user-friendly, and visually updated.",
-            "Improved backend code security and performance for safer and more efficient execution.",
-            "Collaborated within a cross-functional development team and coordinated closely with supervisors throughout the system development process."
-        ]
+        "description": "As an Intern at the UNTAR Data and Information Technology Center, I fully contributed to the LINTAR academic management system. My responsibilities included modernizing the system's interface to be more responsive and user-friendly, as well as enhancing backend security and performance for more efficient execution, all while collaborating closely within a cross-functional team."
     },
     {
         "id": 2,
         "date": "2025 - 2025",
         "role": "Scrum Master",
         "company": "Universitas Tarumanagara",
-        "description": [
-            "Developed a Essay Grading System WebApp \"UploadItIn\" for final exam, from concept to deployment, utilizing Python library such as Scikit-learn, etc.",
-            "Lead a team of developer using SCRUM method, making developing projects 2-3x more efficient than normal method."
-        ]
+        "description": "In my role as Scrum Master, I led a development team in building the \"UploadItIn\" web application for essay grading. By implementing the SCRUM methodology, I successfully increased the project's development efficiency by 2-3 times compared to standard methods."
     },
     {
         "id": 3,
         "date": "2024 - 2024",
         "role": "Project Lead",
         "company": "Universitas Tarumanagara",
-        "description": [
-            "Developed a Outfit Inspiration Website \"Outfitology\" for final exam, from concept to deployment, utilizing UnsplashAPI for infinite inspiration.",
-            "Lead and manage a team of developer to ensure productivity and efficiency."
-        ]
+        "description": "As Project Lead, I led and managed a development team from concept to deployment in creating the \"Outfitology\" fashion inspiration website. I was responsible for ensuring the team's productivity and efficiency throughout the development process."
     }
 ]

@@ -83,7 +83,7 @@ function App() {
                 <Header />
 
                 <div className="bg-black text-gray-800">
-                    <main className="container mx-auto px-6 py-20 w-[90%] max-w-5xl">
+                    <main className="container mx-auto py-20 w-[90%] max-w-5xl">
                         <About />
                         <Experiences />
                         <ToolsAndFrameworks />
