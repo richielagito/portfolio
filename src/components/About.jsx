@@ -23,10 +23,10 @@ const About = () => {
         // Animasi untuk kolom kiri (gambar)
         gsap.fromTo(
             leftEl,
-            { opacity: 0, x: -100 },
+            { opacity: 0, filter: "blur(8px)" },
             {
                 opacity: 1,
-                x: 0,
+                filter: "blur(0px)",
                 duration: 1,
                 ease: "power2.out",
                 scrollTrigger: {
@@ -39,9 +39,10 @@ const About = () => {
 
         gsap.fromTo(
             rightEl,
-            { opacity: 0, x: 100 },
+            { opacity: 0, x: 100, filter: "blur(8px)" },
             {
                 opacity: 1,
+                filter: "blur(0px)",
                 x: 0,
                 duration: 1,
                 ease: "power2.out",
