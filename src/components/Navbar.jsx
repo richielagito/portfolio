@@ -79,7 +79,7 @@ const Navbar = () => {
                 className={`fixed top-4 left-1/2 -translate-x-1/2 
                             flex items-center justify-between 
                             w-[90%] max-w-5xl px-5 py-3 border border-white/0
-                            z-50 transition-colors duration-300 ease-in-out rounded-full
+                            z-50 transition-colors duration-300 ease-in-out rounded-2xl md:rounded-full
                             ${scrolled || isMenuOpen ? "backdrop-blur-md border border-white/20 bg-white/10 shadow-lg" : "border-transparent"}`}
             >
                 <div className="container mx-auto flex justify-between items-center">
