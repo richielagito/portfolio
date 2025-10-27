@@ -28,48 +28,23 @@ const Navbar = () => {
     // Efek animasi menu mobile
     useEffect(() => {
         if (isMenuOpen) {
-            const tl = gsap.timeline();
-
-            // Animate menu container first
-            tl.to(".mobile-menu", {
-                height: "340px",
+            gsap.to(".mobile-menu", {
                 opacity: 1,
-                duration: 0.6,
-                display: "block",
-                ease: "power2.inOut",
-            })
-                // Then stagger animate each nav item individually
-                .fromTo(
-                    ".mobile-menu a",
-                    {
-                        opacity: 0,
-                        y: 20,
-                    },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        duration: 0.3,
-                        stagger: 0.1, // This creates the stagger effect
-                        ease: "power2.out",
-                    }
-                );
-        } else {
-            const tl = gsap.timeline();
-
-            // Reverse animation with stagger
-            tl.to(".mobile-menu a", {
-                opacity: 0,
-                y: 20,
+                y: 0,
                 duration: 0.3,
-                stagger: 0.05, // Faster stagger for closing
-                ease: "power2.in",
-            }).to(".mobile-menu", {
-                height: "50px",
+                ease: "power2.out",
+                display: "block",
+            });
+        } else {
+            gsap.to(".mobile-menu", {
                 opacity: 0,
-                duration: 0.6,
-                ease: "power2.inOut",
+                y: -20,
+                duration: 0.2,
+                ease: "power2.in",
                 onComplete: () => {
-                    gsap.set(".mobile-menu", { display: "none" });
+                    if (!isMenuOpen) {
+                        gsap.set(".mobile-menu", { display: "none" });
+                    }
                 },
             });
         }
@@ -135,12 +110,12 @@ const Navbar = () => {
 
             {/* Menu Dropdown untuk Mobile */}
             <div
-                style={{ display: "none", height: "50px" }}
-                className="mobile-menu fixed top-[17px] left-0 right-0 w-[90%] max-w-5xl mx-auto 
+                style={{ display: "none" }}
+                className="mobile-menu fixed top-[90px] left-0 right-0 w-[90%] max-w-5xl mx-auto 
                         bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 z-40 
-                        opacity-0 border border-white/20"
+                        opacity-0 -translate-y-10 border border-white/20"
             >
-                <div className="flex flex-col items-center space-y-6 text-center mt-[50px]" style={{ display: "none", opacity: 0, transform: "translateY(20px)" }}>
+                <div className="flex flex-col items-center space-y-6 text-center">
                     {navItems.map((item) => (
                         <a key={item.label} href={item.href} onClick={(e) => scrollToSection(e, item.href)} className="text-white text-lg w-full py-2 hover:opacity-75 transition-opacity">
                             {item.label}
