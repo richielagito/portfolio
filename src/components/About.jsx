@@ -74,7 +74,7 @@ const About = () => {
                     <p className="text-white/80 mb-6 leading-relaxed">My expertise includes UI design, front-end web development, and problem solving. I believe that good collaboration is key to producing outstanding products.</p>
                     <div className="flex flex-wrap gap-2">
                         {["Front-end", "React", "JavaScript", "HTML & CSS", "etc."].map((skill) => (
-                            <span key={skill} className="bg-indigo-200 text-indigo-800 text-sm font-medium px-3 py-1 rounded-full">
+                            <span key={skill} className="backdrop-blur-md border border-white/20 bg-white/15 text-white text-sm font-medium px-3 py-1 rounded-full">
                                 {skill}
                             </span>
                         ))}

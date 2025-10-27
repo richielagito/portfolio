@@ -12,5 +12,19 @@
         "description": "UploadItIn is a website build to grade essay more efficient, fast, and accurate.",
         "imageUrl": "uploaditin.png",
         "webUrl": "https://uploaditin-production.up.railway.app/"
+    },
+    {
+        "id": 3,
+        "title": "Ube",
+        "description": "Ube is an e-commerce website for selling various products online.",
+        "imageUrl": "ube.png",
+        "webUrl": "https://github.com/Deppn/UAS-Kel-6"
+    },
+    {
+        "id": 4,
+        "title": "Gedagedi",
+        "description": "Gedagedi is a social media mobile application that let users post threads and interact with other users.",
+        "imageUrl": "gedagedi.png",
+        "webUrl": "https://github.com/richielagito/projek_uts_mobile_progamming"
     }
 ]

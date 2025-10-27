@@ -64,7 +64,7 @@ const Experiences = () => {
                 <div className="absolute z-0 w-1 left-4 md:left-1/2 -translate-x-1/2 top-2 bottom-2">
                     <div className="h-full w-full bg-white/10 rounded-full"></div>
                     <div
-                        className="absolute top-0 w-full bg-gradient-to-b from-indigo-400 to-purple-500 rounded-full"
+                        className="absolute top-0 w-full bg-gradient-to-b from-gray-50 to-zinc-500 rounded-full"
                         style={{
                             height: `${scrollPercentage}%`,
                             boxShadow: "0 0 10px rgba(129, 140, 248, 0.7)",
@@ -74,14 +74,14 @@ const Experiences = () => {
 
                 {experiencesData.map((exp, index) => (
                     <div key={exp.id} className="relative z-10 experience-item">
-                        <div className="timeline-dot absolute w-4 h-4 bg-gray-800 rounded-full mt-1.5 left-4 md:left-1/2 -translate-x-1/2 border-2 border-indigo-400"></div>
+                        <div className="timeline-dot absolute w-4 h-4 bg-gray-800 rounded-full mt-1.5 left-4 md:left-1/2 -translate-x-1/2 border-2 border-gray-50"></div>
 
                         <div
                             className={`timeline-content w-full 
                                         pl-10 md:w-5/12 
                                         ${index % 2 === 0 ? "md:ml-auto md:pl-12" : "md:mr-auto md:pr-12 md:pl-0 md:text-right"}`}
                         >
-                            <p className="text-indigo-300 text-sm font-semibold">{exp.date}</p>
+                            <span className="text-sm font-semibold bg-gradient-to-r from-gray-50 to-zinc-400 bg-clip-text text-transparent">{exp.date}</span>
                             <h3 className="text-xl font-bold text-white mt-1">{exp.role}</h3>
                             <p className="text-white/80 text-md mb-3">{exp.company}</p>
                             <ul

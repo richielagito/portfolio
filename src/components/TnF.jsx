@@ -37,12 +37,12 @@ const ToolsAndFrameworks = () => {
                     icons,
                     {
                         opacity: 0,
-                        y: 50,
+                        filter: "blur(8px)",
                         scale: 0.9,
                     },
                     {
                         opacity: 1,
-                        y: 0,
+                        filter: "blur(0px)",
                         scale: 1,
                         duration: 0.8,
                         stagger: 0.1,
