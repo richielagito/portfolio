@@ -4,27 +4,31 @@
         "title": "Outfitology",
         "description": "Outfitology is a web app that provides outfit inspiration based on user preferences and current fashion trends.",
         "imageUrl": "outfitology.png",
-        "webUrl": "https://outfitology-frontend.pages.dev"
+        "webUrl": "https://outfitology-frontend.pages.dev",
+        "stack": ["AngularJS", "HTML", "CSS", "JavaScript"]
     },
     {
         "id": 2,
         "title": "UploadItIn",
         "description": "UploadItIn is a website build to grade essay more efficient, fast, and accurate.",
         "imageUrl": "uploaditin.png",
-        "webUrl": "https://uploaditin-production.up.railway.app/"
+        "webUrl": "https://uploaditin-production.up.railway.app/",
+        "stack": ["Python", "Scikit-learn", "HTML", "CSS", "JavaScript"]
     },
     {
         "id": 3,
         "title": "Ube",
         "description": "Ube is an e-commerce website for selling various products online.",
         "imageUrl": "ube.png",
-        "webUrl": "https://github.com/Deppn/UAS-Kel-6"
+        "webUrl": "https://github.com/Deppn/UAS-Kel-6",
+        "stack": ["HTML", "CSS", "JavaScript"]
     },
     {
         "id": 4,
         "title": "Gedagedi",
         "description": "Gedagedi is a social media mobile application that let users post threads and interact with other users.",
         "imageUrl": "gedagedi.png",
-        "webUrl": "https://github.com/richielagito/projek_uts_mobile_progamming"
+        "webUrl": "https://github.com/richielagito/projek_uts_mobile_progamming",
+        "stack": ["Flutter", "Dart", "Firebase"]
     }
 ]

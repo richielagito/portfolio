@@ -29,3 +29,62 @@ body {
     will-change: filter;
     transition: filter 300ms;
 }
+
+/* --- Tambahan untuk Marquee --- */
+.marquee-container {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    /* Efek fade di tepi */
+    mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, white 20%, white 80%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+}
+
+.marquee-track-reverse {
+    display: flex;
+    width: max-content;
+    animation: marquee-reverse 30s linear infinite;
+}
+
+/* Duplikasi item untuk loop mulus */
+.marquee-track > *,
+.marquee-track-reverse > * {
+    flex-shrink: 0;
+}
+
+.marquee-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    margin: 0 0.3rem; /* gap antar item */
+    width: 130px; /* Lebar tetap */
+    height: 110px; /* Tinggi tetap */
+    transition: all 0.3s ease;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes marquee-reverse {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+/* --- Akhir Tambahan Marquee --- */
