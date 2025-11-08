@@ -21,7 +21,7 @@
         "description": "Ube is an e-commerce website for selling various products online.",
         "imageUrl": "ube.png",
         "webUrl": "https://github.com/Deppn/UAS-Kel-6",
-        "stack": ["HTML", "CSS", "JavaScript"]
+        "stack": ["Laravel", "Blade", "PHP"]
     },
     {
         "id": 4,
