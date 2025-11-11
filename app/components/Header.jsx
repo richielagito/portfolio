@@ -1,7 +1,9 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import Beams from "./Beams.jsx";
-import RotatingText from "./RotatingText";
+import RotatingText from "./RotatingText.jsx";
 import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";

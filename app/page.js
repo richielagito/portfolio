@@ -1,5 +1,6 @@
+"use client";
+
 import { useState, useEffect } from "react";
-import "./App.css";
 import Navbar from "./components/Navbar.jsx";
 import Header from "./components/Header.jsx";
 import Projects from "./components/Projects.jsx";
@@ -10,7 +11,7 @@ import ToolsAndFrameworks from "./components/TnF.jsx";
 import Experiences from "./components/Experiences.jsx";
 import "./fontawesome.js";
 
-function App() {
+export default function Home() {
     const items = [
         {
             label: "About",
@@ -42,40 +43,6 @@ function App() {
         },
     ];
 
-    useEffect(() => {
-        // 1. Memuat file CSS AOS
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = "https://unpkg.com/aos@2.3.1/dist/aos.css";
-        document.head.appendChild(link);
-
-        // 2. Memuat file JavaScript AOS
-        const script = document.createElement("script");
-        script.src = "https://unpkg.com/aos@2.3.1/dist/aos.js";
-        script.async = true;
-
-        // 3. Menginisialisasi AOS setelah script berhasil dimuat
-        script.onload = () => {
-            if (window.AOS) {
-                window.AOS.init({
-                    duration: 800,
-                    once: true,
-                });
-            }
-        };
-
-        document.body.appendChild(script);
-
-        return () => {
-            if (document.head.contains(link)) {
-                document.head.removeChild(link);
-            }
-            if (document.body.contains(script)) {
-                document.body.removeChild(script);
-            }
-        };
-    }, []);
-
     return (
         <>
             <div className="overflow-x-hidden">
@@ -96,5 +63,3 @@ function App() {
         </>
     );
 }
-
-export default App;

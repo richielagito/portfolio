@@ -1,5 +1,7 @@
+"use client";
+
 import { motion, useMotionValue, useTransform } from "motion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function CardRotate({ children, onSendToBack, sensitivity }) {
     const x = useMotionValue(0);
@@ -35,6 +37,14 @@ export default function Stack({ randomRotation = false, sensitivity = 200, cardD
               ]
     );
 
+    const [randomRotations, setRandomRotations] = useState([]);
+
+    useEffect(() => {
+        if (randomRotation) {
+            setRandomRotations(cards.map(() => Math.random() * 10 - 5));
+        }
+    }, [randomRotation, cards.length]);
+
     const sendToBack = (id) => {
         setCards((prev) => {
             const newCards = [...prev];
@@ -45,17 +55,20 @@ export default function Stack({ randomRotation = false, sensitivity = 200, cardD
         });
     };
 
+    const cardWidth = `${cardDimensions.width}px`;
+    const cardHeight = `${cardDimensions.height}px`;
+
     return (
         <div
             className="relative"
             style={{
-                width: cardDimensions.width,
-                height: cardDimensions.height,
+                width: cardWidth,
+                height: cardHeight,
                 perspective: 600,
             }}
         >
             {cards.map((card, index) => {
-                const randomRotate = randomRotation ? Math.random() * 10 - 5 : 0;
+                const randomRotate = randomRotations[index] || 0;
 
                 return (
                     <CardRotate key={card.id} onSendToBack={() => sendToBack(card.id)} sensitivity={sensitivity}>
@@ -74,8 +87,8 @@ export default function Stack({ randomRotation = false, sensitivity = 200, cardD
                                 damping: animationConfig.damping,
                             }}
                             style={{
-                                width: cardDimensions.width,
-                                height: cardDimensions.height,
+                                width: cardWidth,
+                                height: cardHeight,
                             }}
                         >
                             <img src={card.img} alt={`card-${card.id}`} className="w-full h-full object-cover pointer-events-none" />

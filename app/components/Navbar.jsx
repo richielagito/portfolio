@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react"; // Import React
+"use client"; // Pastikan ini ada di atas
+
+import React, { useState, useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
+// Kita masih mendaftarkan plugin GSAP, tapi HANYA untuk fungsi scrollToSection
 gsap.registerPlugin(ScrollToPlugin);
 
-// Data navigasi untuk memudahkan pengelolaan
+// Data navigasi tetap sama
 const navItems = [
     { label: "About Me", href: "#about" },
     { label: "Experience", href: "#experiences" },
@@ -16,7 +19,7 @@ const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    // Efek deteksi scroll
+    // Efek deteksi scroll (Ini sudah benar, biarkan saja)
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
@@ -25,30 +28,7 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Efek animasi menu mobile
-    useEffect(() => {
-        if (isMenuOpen) {
-            gsap.to(".mobile-menu", {
-                opacity: 1,
-                y: 0,
-                duration: 0.3,
-                ease: "power2.out",
-                display: "block",
-            });
-        } else {
-            gsap.to(".mobile-menu", {
-                opacity: 0,
-                y: -20,
-                duration: 0.2,
-                ease: "power2.in",
-                onComplete: () => {
-                    if (!isMenuOpen) {
-                        gsap.set(".mobile-menu", { display: "none" });
-                    }
-                },
-            });
-        }
-    }, [isMenuOpen]);
+    // HAPUS: useEffect() yang lama untuk animasi menu GSAP
 
     const toggleMenu = () => {
         setIsMenuOpen((prev) => !prev);
@@ -56,9 +36,7 @@ const Navbar = () => {
 
     const scrollToSection = (event, targetId) => {
         event.preventDefault();
-
         const offsetValue = 100;
-
         gsap.to(window, {
             duration: 1,
             scrollTo: {
@@ -67,7 +45,6 @@ const Navbar = () => {
             },
             ease: "power2.inOut",
         });
-
         if (isMenuOpen) {
             toggleMenu();
         }
@@ -82,12 +59,11 @@ const Navbar = () => {
                             z-50 transition-colors duration-300 ease-in-out rounded-2xl md:rounded-full
                             ${scrolled || isMenuOpen ? "backdrop-blur-md border border-white/20 bg-white/10 shadow-lg" : "border-transparent"}`}
             >
+                {/* ... (Isi <nav> lainnya tetap sama) ... */}
                 <div className="container mx-auto flex justify-between items-center">
                     <a href="#" className="text-xl font-bold" onClick={(e) => scrollToSection(e, "#header-content")}>
                         <img src="logoRL.svg" width="30" height="30" alt="logo" />
                     </a>
-
-                    {/* Navigasi untuk Desktop */}
                     <div className="hidden md:flex space-x-8">
                         {navItems.map((item) => (
                             <a key={item.label} href={item.href} className="hover:opacity-100 text-white opacity-70 transition-opacity" onClick={(e) => scrollToSection(e, item.href)}>
@@ -95,8 +71,6 @@ const Navbar = () => {
                             </a>
                         ))}
                     </div>
-
-                    {/* Tombol Hamburger */}
                     <div className="md:hidden flex items-center">
                         <button onClick={toggleMenu} className="text-white focus:outline-none p-2 -mr-2" aria-label={isMenuOpen ? "Close menu" : "Open menu"}>
                             <div className="w-6 h-6 flex flex-col justify-around items-center relative">
@@ -110,10 +84,15 @@ const Navbar = () => {
 
             {/* Menu Dropdown untuk Mobile */}
             <div
-                style={{ display: "none" }}
-                className="mobile-menu fixed top-[90px] left-0 right-0 w-[90%] max-w-5xl mx-auto 
-                        bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 z-40 
-                        opacity-0 -translate-y-10 border border-white/20"
+                // HAPUS: style={{ display: "none" }}
+                // GANTI: className
+                className={`
+                    mobile-menu fixed top-[90px] left-0 right-0 w-[90%] max-w-5xl mx-auto 
+                    bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 z-40 
+                    border border-white/20
+                    transition-all duration-300 ease-in-out
+                    ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 pointer-events-none"}
+                `}
             >
                 <div className="flex flex-col items-center space-y-6 text-center">
                     {navItems.map((item) => (
