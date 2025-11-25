@@ -123,6 +123,9 @@ const Header = () => {
                     </svg>
                 </div>
             </a>
+
+            {/* Fade Overlay Bottom */}
+            <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-black to-transparent z-10 pointer-events-none"></div>
         </header>
     );
 };
