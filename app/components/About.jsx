@@ -9,10 +9,10 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
     const images = [
-        { id: 4, img: "fotomakanan2.jpg" },
-        { id: 3, img: "fotomakanan1.jpg" },
-        { id: 2, img: "fotobadminton.jpg" },
-        { id: 1, img: "fotosplit.jpg" },
+        { id: 4, img: "/fotomakanan2.jpg" },
+        { id: 3, img: "/fotomakanan1.jpg" },
+        { id: 2, img: "/fotobadminton.jpg" },
+        { id: 1, img: "/fotosplit.jpg" },
     ];
 
     const leftColRef = useRef(null);

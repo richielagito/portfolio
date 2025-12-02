@@ -1,15 +1,19 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import Beams from "./Beams.jsx";
 import RotatingText from "./RotatingText.jsx";
 import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
+const Beams = dynamic(() => import("./Beams.jsx"), {
+    ssr: false,
+    loading: () => <div className="absolute inset-0 bg-black"></div>,
+});
+
 const Header = () => {
-    const overlayRef = useRef(null);
     const staticHeadingRef = useRef(null);
     const rotatingTextContainerRef = useRef(null); // Ref untuk motion.h1
     const paragraphRef = useRef(null);
@@ -20,17 +24,7 @@ const Header = () => {
         const ctx = gsap.context(() => {
             const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-            // 1. Background Fade Out (Overlay Hitam Menghilang)
-            tl.to(overlayRef.current, {
-                opacity: 0,
-                duration: 1.0, // Durasi fade dipercepat
-                delay: 0.1, // Jeda dikurangi
-                onComplete: () => {
-                    gsap.set(overlayRef.current, { display: "none" });
-                },
-            });
-
-            // 2. Animasi Teks & Tombol (Blur-in dan Slide-up) - Dimulai setelah background mulai fade
+            // Animasi Teks & Tombol (Blur-in dan Slide-up) - Langsung mulai
             tl.fromTo(
                 [staticHeadingRef.current, rotatingTextContainerRef.current], // Animasikan kedua H1 bersamaan
                 { opacity: 0, y: 30, filter: "blur(8px)" },
@@ -40,8 +34,7 @@ const Header = () => {
                     filter: "blur(0px)",
                     duration: 1,
                     stagger: 0.2, // Beri sedikit jeda antara H1 pertama dan kedua
-                },
-                "-=0.9" // Mulai lebih awal agar LCP lebih cepat
+                }
             )
                 .fromTo(
                     paragraphRef.current,
@@ -67,12 +60,9 @@ const Header = () => {
     }, []);
 
     return (
-        <header className="relative w-full h-screen flex items-center justify-center text-start overflow-hidden bg-gray-100">
-            {/* Overlay Hitam untuk Efek Fade */}
-            <div ref={overlayRef} className="absolute inset-0 bg-black z-50"></div>
-
+        <header className="relative w-full h-screen flex items-center justify-center text-start overflow-hidden bg-black">
             <div style={{ width: "100%", height: "100vh", position: "absolute", zIndex: 1 }}>
-                <Beams beamWidth={3} beamHeight={30} beamNumber={20} lightColor="#ffffff" speed={2} noiseIntensity={1.75} scale={0.2} rotation={30} />
+                <Beams beamWidth={3} beamHeight={30} beamNumber={10} lightColor="#ffffff" speed={2} noiseIntensity={1.75} scale={0.2} rotation={30} />
             </div>
 
             {/* Konten Header */}
