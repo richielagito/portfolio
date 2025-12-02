@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import experiencesData from "../json/experiencesData.json";
@@ -8,31 +8,28 @@ import experiencesData from "../json/experiencesData.json";
 gsap.registerPlugin(ScrollTrigger);
 
 const Experiences = () => {
-    const [scrollPercentage, setScrollPercentage] = useState(0);
     const timelineRef = useRef(null);
     const sectionRef = useRef(null);
+    const progressBarRef = useRef(null);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (!timelineRef.current) return;
-
-            const element = timelineRef.current;
-            const { top, height } = element.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-
-            const startPoint = top - windowHeight * 0.9;
-            const scrollableDistance = height + windowHeight * 0.1;
-
-            const progress = (-startPoint / scrollableDistance) * 100;
-            const clampedProgress = Math.min(Math.max(progress, 0), 100);
-
-            setScrollPercentage(clampedProgress);
-        };
-
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        handleScroll();
-
         const ctx = gsap.context(() => {
+            // Animate timeline progress bar
+            gsap.fromTo(
+                progressBarRef.current,
+                { height: "0%" },
+                {
+                    height: "100%",
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: timelineRef.current,
+                        start: "top 80%",
+                        end: "bottom 80%",
+                        scrub: 0.5,
+                    },
+                }
+            );
+
             gsap.utils.toArray(".experience-item").forEach((item) => {
                 gsap.fromTo(
                     item,
@@ -53,10 +50,7 @@ const Experiences = () => {
             });
         }, sectionRef);
 
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-            ctx.revert();
-        };
+        return () => ctx.revert();
     }, []);
 
     return (
@@ -66,9 +60,9 @@ const Experiences = () => {
                 <div className="absolute z-0 w-1 left-4 md:left-1/2 -translate-x-1/2 top-2 bottom-2">
                     <div className="h-full w-full bg-white/10 rounded-full"></div>
                     <div
+                        ref={progressBarRef}
                         className="absolute top-0 w-full bg-gradient-to-b from-gray-50 to-zinc-500 rounded-full"
                         style={{
-                            height: `${scrollPercentage}%`,
                             boxShadow: "0 0 10px rgba(129, 140, 248, 0.7)",
                         }}
                     ></div>
@@ -76,7 +70,7 @@ const Experiences = () => {
 
                 {experiencesData.map((exp, index) => (
                     <div key={exp.id} className="relative z-10 experience-item">
-                        <div className="timeline-dot absolute w-4 h-4 bg-gray-800 rounded-full mt-1.5 left-4 md:left-1/2 -translate-x-1/2 border-2 border-gray-50"></div>
+                        <div className="timeline-dot absolute w-4 h-4 bg-gray-800 rounded-full mt-1.5 -left-2 md:left-1/2 -translate-x-1/2 border-2 border-gray-50"></div>
 
                         <div
                             className={`timeline-content w-full 

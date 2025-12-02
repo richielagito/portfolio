@@ -9,7 +9,7 @@ import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import ToolsAndFrameworks from "./components/TnF.jsx";
 import Experiences from "./components/Experiences.jsx";
-import "./fontawesome.js";
+
 
 export default function Home() {
     const items = [

@@ -1,6 +1,7 @@
-"use client"; // Pastikan ini ada di atas
+"use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
@@ -62,7 +63,7 @@ const Navbar = () => {
                 {/* ... (Isi <nav> lainnya tetap sama) ... */}
                 <div className="container mx-auto flex justify-between items-center">
                     <a href="#" className="text-xl font-bold" onClick={(e) => scrollToSection(e, "#header-content")}>
-                        <img src="logoRL.svg" width="30" height="30" alt="logo" />
+                        <Image src="/logoRL.svg" width={30} height={30} alt="logo" />
                     </a>
                     <div className="hidden md:flex space-x-8">
                         {navItems.map((item) => (

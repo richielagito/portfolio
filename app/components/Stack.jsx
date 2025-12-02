@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue, useTransform } from "motion/react";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 function CardRotate({ children, onSendToBack, sensitivity }) {
     const x = useMotionValue(0);
@@ -91,7 +92,7 @@ export default function Stack({ randomRotation = false, sensitivity = 200, cardD
                                 height: cardHeight,
                             }}
                         >
-                            <img src={card.img} alt={`card-${card.id}`} className="w-full h-full object-cover pointer-events-none" />
+                            <Image src={card.img} alt={`card-${card.id}`} fill className="object-cover pointer-events-none" sizes="(max-width: 768px) 100vw, 33vw" />
                         </motion.div>
                     </CardRotate>
                 );

@@ -1,5 +1,6 @@
 "use client"; // Pastikan "use client" ada di atas
 
+import Image from "next/image";
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -38,8 +39,8 @@ const Projects = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-8 gap-y-12">
                 {projectData.map((project) => (
                     <div key={project.id} className="project-card">
-                        <div className="bg-white/15 rounded-lg shadow-lg overflow-hidden group">
-                            <img src={project.imageUrl} alt={project.title} className="w-full h-full max-h-60 object-cover" />
+                        <div className="bg-white/15 rounded-lg shadow-lg overflow-hidden group relative h-60 w-full">
+                            <Image src={project.imageUrl} alt={project.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                         </div>
 
                         <div className="mt-4 flex flex-col">

@@ -1,7 +1,7 @@
 "use client";
 
 /* eslint-disable react/no-unknown-property */
-import { forwardRef, useImperativeHandle, useEffect, useRef, useMemo } from "react";
+import { forwardRef, useImperativeHandle, useEffect, useRef, useMemo, useState } from "react";
 
 import * as THREE from "three";
 
@@ -50,10 +50,12 @@ function extendMaterial(BaseMaterial, cfg) {
     return mat;
 }
 
-const CanvasWrapper = ({ children }) => (
-    <Canvas dpr={[1, 2]} frameloop="always" className="w-full h-full relative">
-        {children}
-    </Canvas>
+const CanvasWrapper = ({ children, frameloop }) => (
+    <div className="w-full h-full relative" id="beams-container">
+        <Canvas dpr={[1, 1.5]} frameloop={frameloop} className="w-full h-full relative" gl={{ antialias: false, powerPreference: "high-performance" }}>
+            {children}
+        </Canvas>
+    </div>
 );
 
 const hexToNormalizedRGB = (hex) => {
@@ -143,6 +145,28 @@ float cnoise(vec3 P){
 
 const Beams = ({ beamWidth = 2, beamHeight = 15, beamNumber = 12, lightColor = "#ffffff", speed = 2, noiseIntensity = 1.75, scale = 0.2, rotation = 0 }) => {
     const meshRef = useRef(null);
+    const [isInView, setIsInView] = useState(true);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsInView(entry.isIntersecting);
+            },
+            { threshold: 0 }
+        );
+
+        const container = document.getElementById("beams-container");
+        if (container) {
+            observer.observe(container);
+        }
+
+        return () => {
+            if (container) {
+                observer.unobserve(container);
+            }
+        };
+    }, []);
+
     const beamMaterial = useMemo(
         () =>
             extendMaterial(THREE.MeshStandardMaterial, {
@@ -201,7 +225,7 @@ const Beams = ({ beamWidth = 2, beamHeight = 15, beamNumber = 12, lightColor = "
     );
 
     return (
-        <CanvasWrapper>
+        <CanvasWrapper frameloop={isInView ? "always" : "never"}>
             <group rotation={[0, 0, degToRad(rotation)]}>
                 <PlaneNoise ref={meshRef} material={beamMaterial} count={beamNumber} width={beamWidth} height={beamHeight} />
                 <DirLight color={lightColor} position={[0, 3, 10]} />
@@ -264,7 +288,7 @@ function createStackedPlanesBufferGeometry(n, width, height, spacing, heightSegm
 const MergedPlanes = forwardRef(({ material, width, count, height }, ref) => {
     const mesh = useRef(null);
     useImperativeHandle(ref, () => mesh.current);
-    const geometry = useMemo(() => createStackedPlanesBufferGeometry(count, width, height, 0, 100), [count, width, height]);
+    const geometry = useMemo(() => createStackedPlanesBufferGeometry(count, width, height, 0, 40), [count, width, height]);
     useFrame((_, delta) => {
         mesh.current.material.uniforms.time.value += 0.1 * delta;
     });

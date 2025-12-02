@@ -23,8 +23,8 @@ const Header = () => {
             // 1. Background Fade Out (Overlay Hitam Menghilang)
             tl.to(overlayRef.current, {
                 opacity: 0,
-                duration: 1.5, // Durasi fade
-                delay: 0.2, // Sedikit jeda sebelum mulai
+                duration: 1.0, // Durasi fade dipercepat
+                delay: 0.1, // Jeda dikurangi
                 onComplete: () => {
                     gsap.set(overlayRef.current, { display: "none" });
                 },
@@ -41,7 +41,7 @@ const Header = () => {
                     duration: 1,
                     stagger: 0.2, // Beri sedikit jeda antara H1 pertama dan kedua
                 },
-                "-=1.0" // Mulai 1 detik sebelum animasi overlay selesai
+                "-=0.9" // Mulai lebih awal agar LCP lebih cepat
             )
                 .fromTo(
                     paragraphRef.current,
