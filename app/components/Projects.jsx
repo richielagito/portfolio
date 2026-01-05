@@ -1,43 +1,73 @@
 "use client"; // Pastikan "use client" ada di atas
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ChevronDown, ChevronUp } from "lucide-react";
 import projectData from "../json/projectData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Projects = () => {
+    const [showAll, setShowAll] = useState(false);
+    const visibleProjects = showAll ? projectData : projectData.slice(0, 4);
+
     useEffect(() => {
-        gsap.fromTo(
-            ".project-card",
-            { opacity: 0, y: 50 },
-            {
-                opacity: 1,
-                y: 0,
-                duration: 1,
-                stagger: 0.3,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: ".project-card",
-                    start: "top 80%",
-                    end: "bottom 20%",
-                    toggleActions: "play none",
-                },
-            }
-        );
-        return () => {
-            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-        };
+        // Animasi untuk 4 project pertama saat load awal
+        const ctx = gsap.context(() => {
+            gsap.fromTo(
+                ".project-card:nth-child(-n+4)",
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    stagger: 0.3,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: "#projects",
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none",
+                    },
+                }
+            );
+        });
+        return () => ctx.revert();
     }, []);
+
+    useEffect(() => {
+        // Animasi untuk project tambahan saat "Show More" diklik
+        if (showAll) {
+            const ctx = gsap.context(() => {
+                gsap.fromTo(
+                    ".project-card:nth-child(n+5)",
+                    { opacity: 0, y: 50 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1,
+                        stagger: 0.3,
+                        ease: "power2.out",
+                        scrollTrigger: {
+                            trigger: ".project-card:nth-child(5)",
+                            start: "top 90%",
+                            end: "bottom 20%",
+                            toggleActions: "play none",
+                        },
+                    }
+                );
+            });
+            return () => ctx.revert();
+        }
+    }, [showAll]);
 
     return (
         <section id="projects" className="mb-40 mt-20">
-            <h2 className="text-3xl font-bold text-center mb-12 text-white">Featured Projects</h2>
+            <h2 className="text-3xl font-bold text-center mb-12 text-white"> Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-8 gap-y-12">
-                {projectData.map((project) => (
+                {visibleProjects.map((project) => (
                     <div key={project.id} className="project-card">
                         <div className="bg-white/15 rounded-lg shadow-lg overflow-hidden group relative h-60 w-full">
                             <Image src={project.imageUrl} alt={project.title} fill className="object-cover" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
@@ -77,6 +107,25 @@ const Projects = () => {
                     </div>
                 ))}
             </div>
+
+            {projectData.length > 4 && (
+                <div className="mt-12 flex justify-center">
+                    <button
+                        onClick={() => setShowAll(!showAll)}
+                        className="px-8 py-3 rounded-full border border-white/10 bg-white/5 text-white hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm font-medium flex items-center gap-2"
+                    >
+                        {showAll ? (
+                            <>
+                                Show Less <ChevronUp className="w-5 h-5" />
+                            </>
+                        ) : (
+                            <>
+                                Show More <ChevronDown className="w-5 h-5" />
+                            </>
+                        )}
+                    </button>
+                </div>
+            )}
         </section>
     );
 };

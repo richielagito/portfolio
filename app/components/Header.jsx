@@ -13,7 +13,7 @@ const Beams = dynamic(() => import("./Beams.jsx"), {
     loading: () => <div className="absolute inset-0 bg-black"></div>,
 });
 
-const Header = () => {
+const Header = ({ onLoaded, startAnimation }) => {
     const staticHeadingRef = useRef(null);
     const rotatingTextContainerRef = useRef(null); // Ref untuk motion.h1
     const paragraphRef = useRef(null);
@@ -21,19 +21,20 @@ const Header = () => {
     const scrollDownRef = useRef(null);
 
     useEffect(() => {
-        const ctx = gsap.context(() => {
-            const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+        if (!startAnimation) return;
 
-            // Animasi Teks & Tombol (Blur-in dan Slide-up) - Langsung mulai
+        const ctx = gsap.context(() => {
+            const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 0.5 });
+
             tl.fromTo(
-                [staticHeadingRef.current, rotatingTextContainerRef.current], // Animasikan kedua H1 bersamaan
+                [staticHeadingRef.current, rotatingTextContainerRef.current],
                 { opacity: 0, y: 30, filter: "blur(8px)" },
                 {
                     opacity: 1,
                     y: 0,
                     filter: "blur(0px)",
                     duration: 1,
-                    stagger: 0.2, // Beri sedikit jeda antara H1 pertama dan kedua
+                    stagger: 0.2,
                 }
             )
                 .fromTo(
@@ -57,12 +58,12 @@ const Header = () => {
         });
 
         return () => ctx.revert();
-    }, []);
+    }, [startAnimation]);
 
     return (
         <header className="relative w-full h-screen flex items-center justify-center text-start overflow-hidden bg-black">
             <div style={{ width: "100%", height: "100vh", position: "absolute", zIndex: 1 }}>
-                <Beams beamWidth={3} beamHeight={30} beamNumber={10} lightColor="#ffffff" speed={2} noiseIntensity={1.75} scale={0.2} rotation={30} />
+                <Beams beamWidth={3} beamHeight={30} beamNumber={10} lightColor="#ffffff" speed={2} noiseIntensity={1.75} scale={0.2} rotation={30} onLoaded={onLoaded} />
             </div>
 
             {/* Konten Header */}

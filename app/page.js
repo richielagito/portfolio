@@ -8,10 +8,18 @@ import About from "./components/About.jsx";
 import Contact from "./components/Contact.jsx";
 import Footer from "./components/Footer.jsx";
 import ToolsAndFrameworks from "./components/TnF.jsx";
-import Experiences from "./components/Experiences.jsx";
 
+import Experiences from "./components/Experiences.jsx";
+import LoadingScreen from "./components/LoadingScreen.jsx";
+import { AnimatePresence } from "motion/react";
 
 export default function Home() {
+    const [isLoading, setIsLoading] = useState(true);
+
+    const handleLoadComplete = () => {
+        setIsLoading(false);
+    };
+
     const items = [
         {
             label: "About",
@@ -45,9 +53,11 @@ export default function Home() {
 
     return (
         <>
+            <AnimatePresence mode="wait">{isLoading && <LoadingScreen key="loading-screen" />}</AnimatePresence>
+
             <div className="overflow-x-hidden">
                 <Navbar />
-                <Header />
+                <Header onLoaded={handleLoadComplete} startAnimation={!isLoading} />
 
                 <div className="bg-black text-gray-800">
                     <main className="container mx-auto py-20 w-[90%] max-w-5xl">

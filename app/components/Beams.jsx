@@ -143,11 +143,15 @@ float cnoise(vec3 P){
 }
 `;
 
-const Beams = ({ beamWidth = 2, beamHeight = 15, beamNumber = 12, lightColor = "#ffffff", speed = 2, noiseIntensity = 1.75, scale = 0.2, rotation = 0 }) => {
+const Beams = ({ beamWidth = 2, beamHeight = 15, beamNumber = 12, lightColor = "#ffffff", speed = 2, noiseIntensity = 1.75, scale = 0.2, rotation = 0, onLoaded }) => {
     const meshRef = useRef(null);
     const [isInView, setIsInView] = useState(true);
 
     useEffect(() => {
+        if (onLoaded) {
+            onLoaded();
+        }
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 setIsInView(entry.isIntersecting);
@@ -165,7 +169,7 @@ const Beams = ({ beamWidth = 2, beamHeight = 15, beamNumber = 12, lightColor = "
                 observer.unobserve(container);
             }
         };
-    }, []);
+    }, [onLoaded]);
 
     const beamMaterial = useMemo(
         () =>
