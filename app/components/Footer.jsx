@@ -1,10 +1,12 @@
 const Footer = () => {
     return (
-        <footer className="bg-black py-10">
-            <div className="container mx-auto px-4 flex flex-col items-center gap-4 text-center">
-                <p className="text-white/80 text-sm sm:text-base tracking-wide">
-                    &copy; 2025 - {new Date().getFullYear()} <span className="text-white">Richie Lagito</span>
-                </p>
+        <footer className="w-full py-8 border-t border-white/10 mt-20">
+            <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-sm font-medium text-neutral-500">
+                <p>&copy; {new Date().getFullYear()} Richie Lagito. All Rights Reserved.</p>
+                <div className="flex gap-6 mt-4 md:mt-0">
+                    <span>Jakarta, Indonesia</span>
+                    <span>Local Time: {new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", timeZone: "Asia/Jakarta" })}</span>
+                </div>
             </div>
         </footer>
     );

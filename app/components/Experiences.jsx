@@ -1,93 +1,51 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "motion/react";
 import experiencesData from "../json/experiencesData.json";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const Experiences = () => {
-    const timelineRef = useRef(null);
-    const sectionRef = useRef(null);
-    const progressBarRef = useRef(null);
-
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            // Animate timeline progress bar
-            gsap.fromTo(
-                progressBarRef.current,
-                { height: "0%" },
-                {
-                    height: "100%",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: timelineRef.current,
-                        start: "top 80%",
-                        end: "bottom 80%",
-                        scrub: 0.5,
-                    },
-                }
-            );
-
-            gsap.utils.toArray(".experience-item").forEach((item) => {
-                gsap.fromTo(
-                    item,
-                    { opacity: 0, y: 50, filter: "blur(8px)" },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        filter: "blur(0px)",
-                        duration: 0.8,
-                        ease: "power3.out",
-                        scrollTrigger: {
-                            trigger: item,
-                            start: "top 90%",
-                            toggleActions: "play none none none",
-                        },
-                    }
-                );
-            });
-        }, sectionRef);
-
-        return () => ctx.revert();
-    }, []);
-
+const ExperienceItem = ({ exp, index }) => {
     return (
-        <section id="experiences" className="mb-40" ref={sectionRef}>
-            <h2 className="text-3xl font-bold text-center mb-16 text-white">Experience</h2>
-            <div ref={timelineRef} className="relative container mx-auto px-6 flex flex-col space-y-12">
-                <div className="absolute z-0 w-1 left-4 md:left-1/2 -translate-x-1/2 top-2 bottom-2">
-                    <div className="h-full w-full bg-white/10 rounded-full"></div>
-                    <div
-                        ref={progressBarRef}
-                        className="absolute top-0 w-full bg-gradient-to-b from-gray-50 to-zinc-500 rounded-full"
-                        style={{
-                            boxShadow: "0 0 10px rgba(129, 140, 248, 0.7)",
-                        }}
-                    ></div>
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="relative pl-8 md:pl-0 border-l border-neutral-800 md:border-none pb-12 last:pb-0"
+        >
+            {/* Timeline Dot (Mobile & Desktop) */}
+            <div className="absolute left-[-5px] top-0 w-2.5 h-2.5 rounded-full bg-neutral-600 md:hidden" />
+
+            <div className="md:flex md:gap-12 md:items-start">
+                {/* Date - Left Side on Desktop */}
+                <div className="md:w-1/3 md:text-right mb-2 md:mb-0">
+                    <span className="text-sm font-medium text-neutral-500 uppercase tracking-widest">{exp.date}</span>
                 </div>
 
-                {experiencesData.map((exp, index) => (
-                    <div key={exp.id} className="relative z-10 experience-item">
-                        <div className="timeline-dot absolute w-4 h-4 bg-gray-800 rounded-full mt-1.5 -left-2 md:left-1/2 -translate-x-1/2 border-2 border-gray-50"></div>
+                {/* Content - Right Side on Desktop */}
+                <div className="md:w-2/3 relative md:border-l md:border-neutral-800 md:pl-12 md:pb-12">
+                    {/* Timeline Dot (Desktop) */}
+                    <div className="hidden md:block absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-neutral-600 outline outline-4 outline-background" />
 
-                        <div
-                            className={`timeline-content w-full 
-                                        pl-10 md:w-5/12 
-                                        ${index % 2 === 0 ? "md:ml-auto md:pl-12" : "md:mr-auto md:pr-12 md:pl-0 md:text-right"}`}
-                        >
-                            <span className="text-sm font-semibold bg-gradient-to-r from-gray-50 to-zinc-400 bg-clip-text text-transparent">{exp.date}</span>
-                            <h3 className="text-xl font-bold text-white mt-1">{exp.role}</h3>
-                            <p className="text-white/80 text-md mb-3">{exp.company}</p>
-                            <ul
-                                className={`list-disc list-inside text-white/70 
-                                            ${index % 2 === 0 ? "text-left" : "md:text-right md:list-none"}`}
-                            >
-                                <span className="mb-2">{exp.description}</span>
-                            </ul>
-                        </div>
-                    </div>
+                    <h3 className="text-2xl font-medium text-foreground mb-1">{exp.role}</h3>
+                    <p className="text-neutral-400 text-lg mb-4">{exp.company}</p>
+                    <p className="text-neutral-500 font-normal leading-relaxed max-w-xl">{exp.description}</p>
+                </div>
+            </div>
+        </motion.div>
+    );
+};
+
+const Experiences = () => {
+    return (
+        <section id="experiences" className="py-24">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-20 md:pl-[33.33%] md:pl-12">
+                <h2 className="text-sm font-medium tracking-widest uppercase text-neutral-500 mb-2">Experience</h2>
+                <p className="text-3xl md:text-4xl font-light text-foreground">My professional journey.</p>
+            </motion.div>
+
+            <div className="flex flex-col">
+                {experiencesData.map((exp, index) => (
+                    <ExperienceItem key={exp.id} exp={exp} index={index} />
                 ))}
             </div>
         </section>

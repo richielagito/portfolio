@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 import Stack from "./Stack";
 
-gsap.registerPlugin(ScrollTrigger);
-
 const About = () => {
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, margin: "-100px" });
+
     const images = [
         { id: 4, img: "/fotomakanan2.jpg" },
         { id: 3, img: "/fotomakanan1.jpg" },
@@ -15,73 +15,44 @@ const About = () => {
         { id: 1, img: "/fotosplit.jpg" },
     ];
 
-    const leftColRef = useRef(null);
-    const rightColRef = useRef(null);
-
-    useEffect(() => {
-        const leftEl = leftColRef.current;
-        const rightEl = rightColRef.current;
-
-        // Animasi untuk kolom kiri (gambar)
-        gsap.fromTo(
-            leftEl,
-            { opacity: 0, filter: "blur(8px)" },
-            {
-                opacity: 1,
-                filter: "blur(0px)",
-                duration: 1,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: leftEl,
-                    start: "top 80%",
-                    toggleActions: "play none none none",
-                },
-            }
-        );
-
-        gsap.fromTo(
-            rightEl,
-            { opacity: 0, x: 100, filter: "blur(8px)" },
-            {
-                opacity: 1,
-                filter: "blur(0px)",
-                x: 0,
-                duration: 1,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: rightEl,
-                    start: "top 80%",
-                    toggleActions: "play none none none",
-                },
-            }
-        );
-
-        return () => {
-            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-        };
-    }, []);
-
     return (
-        <section id="about" className="mb-40 mt-20">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 items-center">
-                <div ref={leftColRef} className="md:col-span-2 mx-auto">
-                    <Stack randomRotation={true} sensitivity={180} sendToBackOnClick={false} cardDimensions={{ width: 300, height: 300 }} cardsData={images} />
-                </div>
-                <div ref={rightColRef} className="md:col-span-3">
-                    <h2 className="text-3xl font-bold mb-4 text-white">About Me</h2>
-                    <p className="text-white/80 mb-4 leading-relaxed">
-                        Hi! I'm Richie, an Undergraduate IT Student at Universitas Tarumanagara. I have a passion for solving complex problems and turning them into beautiful and engaging experiences for users. Other than the geek stuff, I
-                        absolutely love to play badminton, and nonetheless, culinary.
+        <section id="about" className="py-24 md:py-32">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+                {/* Image Stack */}
+                <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="order-2 md:order-1 flex justify-center">
+                    <div className="relative w-full max-w-sm aspect-square scale-90 md:scale-100">
+                        <Stack randomRotation={true} sensitivity={180} sendToBackOnClick={false} cardDimensions={{ width: 300, height: 300 }} cardsData={images} />
+                    </div>
+                </motion.div>
+
+                {/* Content */}
+                <motion.div
+                    ref={ref}
+                    className="order-1 md:order-2 flex flex-col items-start text-left"
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                    <h2 className="text-sm font-medium tracking-widest uppercase text-neutral-500 mb-6">About Me</h2>
+                    <p className="text-3xl md:text-4xl leading-tight font-light text-foreground mb-8 text-left">
+                        I'm Richie, <span className="text-neutral-500">a developer with a passion for</span> solving complex problems <span className="text-neutral-500">and creating</span> beautiful experiences.
                     </p>
-                    <p className="text-white/80 mb-6 leading-relaxed">My expertise includes UI design, front-end web development, and problem solving. I believe that good collaboration is key to producing outstanding products.</p>
-                    <div className="flex flex-wrap gap-2">
-                        {["Front-end", "React", "JavaScript", "HTML & CSS", "etc."].map((skill) => (
-                            <span key={skill} className="backdrop-blur-md border border-white/20 bg-white/15 text-white text-sm font-medium px-3 py-1 rounded-full">
+                    <p className="text-neutral-400 leading-relaxed mb-8 text-lg font-light text-left">Currently an Undergraduate IT Student at Universitas Tarumanagara. Beyond code, I find joy in badminton and culinary adventures.</p>
+
+                    <div className="flex flex-wrap gap-3">
+                        {["Front-end", "React", "Next.js", "Motion", "UI/UX"].map((skill, i) => (
+                            <motion.span
+                                key={skill}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+                                transition={{ delay: 0.4 + i * 0.1 }}
+                                className="px-4 py-2 rounded-full border border-neutral-800 bg-neutral-900/50 text-neutral-300 text-sm"
+                            >
                                 {skill}
-                            </span>
+                            </motion.span>
                         ))}
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

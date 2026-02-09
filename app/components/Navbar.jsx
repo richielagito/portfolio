@@ -1,26 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Menu, X } from "lucide-react";
 import Image from "next/image";
-import { gsap } from "gsap";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-
-// Kita masih mendaftarkan plugin GSAP, tapi HANYA untuk fungsi scrollToSection
-gsap.registerPlugin(ScrollToPlugin);
-
-// Data navigasi tetap sama
-const navItems = [
-    { label: "About Me", href: "#about" },
-    { label: "Experience", href: "#experiences" },
-    { label: "Projects", href: "#projects" },
-    { label: "Contact", href: "#contact" },
-];
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
 
 const Navbar = () => {
-    const [scrolled, setScrolled] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
 
-    // Efek deteksi scroll (Ini sudah benar, biarkan saja)
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 50);
@@ -29,80 +20,133 @@ const Navbar = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // HAPUS: useEffect() yang lama untuk animasi menu GSAP
-
     const toggleMenu = () => {
-        setIsMenuOpen((prev) => !prev);
+        setIsMenuOpen(!isMenuOpen);
+        if (!isMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
     };
 
-    const scrollToSection = (event, targetId) => {
-        event.preventDefault();
-        const offsetValue = 100;
-        gsap.to(window, {
-            duration: 1,
-            scrollTo: {
-                y: targetId,
-                offsetY: offsetValue,
+    const navLinks = [
+        { title: "Home", href: "#" },
+        { title: "About", href: "#about" },
+        { title: "Projects", href: "#projects" },
+        { title: "Contact", href: "#contact" },
+    ];
+
+    const socialLinks = [
+        { icon: faGithub, link: "https://www.github.com/richielagito" },
+        { icon: faLinkedin, link: "https://www.linkedin.com/in/richielagito" },
+        { icon: faInstagram, link: "https://www.instagram.com/richielagito_/" },
+    ];
+
+    const menuVariants = {
+        closed: {
+            y: "-100%",
+            transition: {
+                duration: 0.8,
+                ease: [0.76, 0, 0.24, 1],
             },
-            ease: "power2.inOut",
-        });
-        if (isMenuOpen) {
-            toggleMenu();
-        }
+        },
+        open: {
+            y: "0%",
+            transition: {
+                duration: 0.8,
+                ease: [0.76, 0, 0.24, 1],
+            },
+        },
+    };
+
+    const linkContainerVariants = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.1,
+                delayChildren: 0.3,
+            },
+        },
+    };
+
+    const linkVariants = {
+        hidden: { y: 100, opacity: 0 },
+        show: { y: 0, opacity: 1, transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1] } },
     };
 
     return (
         <>
-            <nav
-                className={`fixed top-4 left-1/2 -translate-x-1/2 
-                            flex items-center justify-between 
-                            w-[90%] max-w-5xl px-5 py-3 border border-white/0
-                            z-50 transition-colors duration-300 ease-in-out rounded-2xl md:rounded-full
-                            ${scrolled || isMenuOpen ? "backdrop-blur-md border border-white/20 bg-white/10 shadow-lg" : "border-transparent"}`}
+            {/* Top Bar */}
+            <motion.nav
+                initial={{ y: -100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className={`fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center transition-colors duration-300 ${scrolled ? "mix-blend-difference text-white" : ""}`}
             >
-                {/* ... (Isi <nav> lainnya tetap sama) ... */}
-                <div className="container mx-auto flex justify-between items-center">
-                    <a href="#" className="text-xl font-bold" onClick={(e) => scrollToSection(e, "#header-content")}>
-                        <Image src="/logoRL.svg" width={30} height={30} alt="logo" />
-                    </a>
-                    <div className="hidden md:flex space-x-8">
-                        {navItems.map((item) => (
-                            <a key={item.label} href={item.href} className="hover:opacity-100 text-white opacity-70 transition-opacity" onClick={(e) => scrollToSection(e, item.href)}>
-                                {item.label}
-                            </a>
-                        ))}
-                    </div>
-                    <div className="md:hidden flex items-center">
-                        <button onClick={toggleMenu} className="text-white focus:outline-none p-2 -mr-2" aria-label={isMenuOpen ? "Close menu" : "Open menu"}>
-                            <div className="w-6 h-6 flex flex-col justify-around items-center relative">
-                                <span className={`block w-full h-0.5 bg-white transform transition duration-300 ease-in-out origin-center ${isMenuOpen ? "rotate-45 translate-y-[6px]" : ""}`}></span>
-                                <span className={`block w-full h-0.5 bg-white transform transition duration-300 ease-in-out origin-center ${isMenuOpen ? "-rotate-45 -translate-y-[6px]" : ""}`}></span>
-                            </div>
-                        </button>
-                    </div>
+                <div className="relative w-12 h-12">
+                    <Image src="/logoRL.svg" alt="Richie Lagito" fill className="object-contain" priority />
                 </div>
-            </nav>
 
-            {/* Menu Dropdown untuk Mobile */}
-            <div
-                // HAPUS: style={{ display: "none" }}
-                // GANTI: className
-                className={`
-                    mobile-menu fixed top-[90px] left-0 right-0 w-[90%] max-w-5xl mx-auto 
-                    bg-white/10 backdrop-blur-md rounded-2xl shadow-lg p-6 z-40 
-                    border border-white/20
-                    transition-all duration-300 ease-in-out
-                    ${isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 pointer-events-none"}
-                `}
-            >
-                <div className="flex flex-col items-center space-y-6 text-center">
-                    {navItems.map((item) => (
-                        <a key={item.label} href={item.href} onClick={(e) => scrollToSection(e, item.href)} className="text-white text-lg w-full py-2 hover:opacity-75 transition-opacity">
-                            {item.label}
-                        </a>
-                    ))}
-                </div>
-            </div>
+                <button onClick={toggleMenu} className="group flex flex-col gap-1.5 w-8 items-end cursor-pointer mix-blend-difference z-50 focus:outline-none" aria-label="Toggle Menu">
+                    <span className={`block h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? "w-8 rotate-45 translate-y-2" : "w-8"}`}></span>
+                    <span className={`block h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? "opacity-0" : "w-6 group-hover:w-8"}`}></span>
+                    <span className={`block h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? "w-8 -rotate-45 -translate-y-2" : "w-4 group-hover:w-8"}`}></span>
+                </button>
+            </motion.nav>
+
+            {/* Fullscreen Menu */}
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <motion.div variants={menuVariants} initial="closed" animate="open" exit="closed" className="fixed inset-0 bg-neutral-950 z-40 flex flex-col justify-center items-center">
+                        <div className="container mx-auto px-6 h-full flex flex-col md:flex-row">
+                            {/* Left: Contact Info (Desktop) */}
+                            <div className="hidden md:flex flex-col justify-end pb-20 w-1/3">
+                                <h3 className="text-neutral-500 uppercase text-sm tracking-widest mb-6">Contact</h3>
+                                <a href="mailto:richielagito1@gmail.com" className="text-xl text-neutral-300 hover:text-white transition-colors mb-2">
+                                    richielagito1@gmail.com
+                                </a>
+                                <p className="text-neutral-400">Jakarta, Indonesia</p>
+
+                                <div className="flex gap-6 mt-8">
+                                    {socialLinks.map((social, i) => (
+                                        <a key={i} href={social.link} target="_blank" rel="noreferrer" className="text-neutral-500 hover:text-white transition-colors text-xl">
+                                            <FontAwesomeIcon icon={social.icon} />
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Right: Navigation Links */}
+                            <div className="flex-1 flex flex-col justify-center items-start md:items-end w-full">
+                                <motion.div variants={linkContainerVariants} initial="hidden" animate="show" className="flex flex-col gap-2 md:gap-4">
+                                    {navLinks.map((link, index) => (
+                                        <motion.div key={index} variants={linkVariants} className="overflow-visible">
+                                            <Link href={link.href} onClick={toggleMenu} className="block text-5xl md:text-8xl font-black text-neutral-400 hover:text-white transition-colors tracking-tighter group relative">
+                                                {link.title}
+                                            </Link>
+                                        </motion.div>
+                                    ))}
+                                </motion.div>
+                            </div>
+
+                            {/* Mobile Contact Info (Bottom) */}
+                            <div className="md:hidden mt-auto mb-10 w-full border-t border-neutral-800 pt-8">
+                                <div className="flex justify-between items-center">
+                                    <div className="flex gap-6">
+                                        {socialLinks.map((social, i) => (
+                                            <a key={i} href={social.link} target="_blank" rel="noreferrer" className="text-neutral-500 hover:text-white transition-colors text-xl">
+                                                <FontAwesomeIcon icon={social.icon} />
+                                            </a>
+                                        ))}
+                                    </div>
+                                    <span className="text-neutral-600 text-sm">© {new Date().getFullYear()}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     );
 };

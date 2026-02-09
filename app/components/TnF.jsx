@@ -1,9 +1,12 @@
+"use client";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { motion } from "motion/react";
 import toolsData from "../json/toolsData.json";
-import { faReact, faJs, faHtml5, faCss3Alt, faFigma, faGitAlt, faNodeJs, faVuejs, faAngular, faPython, faBootstrap, faFlutter } from "@fortawesome/free-brands-svg-icons";
+import { faReact, faJs, faHtml5, faCss3Alt, faFigma, faGitAlt, faNodeJs, faVuejs, faAngular, faPython, faBootstrap, faYoutube } from "@fortawesome/free-brands-svg-icons";
 import { faDatabase } from "@fortawesome/free-solid-svg-icons";
 
-// Peta ikon tetap sama
+// Map icons (handling potential missing icons gracefully)
 const iconMap = {
     faReact,
     faJs,
@@ -17,48 +20,63 @@ const iconMap = {
     faDatabase,
     faPython,
     faBootstrap,
-    faFlutter,
+    faYoutube,
 };
 
-// Komponen helper untuk satu item tool
 const ToolItem = ({ tool }) => (
-    <div className="marquee-item">
-        <FontAwesomeIcon icon={iconMap[tool.icon] || faDatabase} size="3x" style={{ color: tool.color }} />
-        <span className="mt-3 text-white text-sm font-semibold text-center">{tool.name}</span>
+    <div className="flex flex-col items-center justify-center mx-8 group cursor-default">
+        <div className="text-neutral-600 transition-colors duration-300 group-hover:text-foreground text-4xl md:text-5xl mb-4">
+            <FontAwesomeIcon icon={iconMap[tool.icon] || faDatabase} />
+        </div>
+        <span className="text-xs font-medium text-neutral-600 group-hover:text-foreground transition-colors uppercase tracking-wider opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+            {tool.name}
+        </span>
     </div>
 );
 
-// Komponen helper untuk satu baris marquee
 const MarqueeRow = ({ tools, reverse = false }) => (
-    <div className="marquee-container my-4">
-        <div className={reverse ? "marquee-track-reverse" : "marquee-track"}>
-            {/* Render pertama kali */}
-            {tools.map((tool) => (
-                <ToolItem key={tool.name} tool={tool} />
+    <div className="flex overflow-hidden py-6 select-none relative mask-linear-fade">
+        <motion.div className="flex flex-shrink-0" initial={{ x: reverse ? "-100%" : "0%" }} animate={{ x: reverse ? "0%" : "-100%" }} transition={{ duration: 40, ease: "linear", repeat: Infinity }}>
+            {tools.map((tool, i) => (
+                <ToolItem key={i} tool={tool} />
             ))}
-            {/* Duplikasi untuk loop mulus */}
-            {tools.map((tool) => (
-                <ToolItem key={`${tool.name}-dup`} tool={tool} />
+            {tools.map((tool, i) => (
+                <ToolItem key={`dup-${i}`} tool={tool} />
             ))}
-        </div>
+            {tools.map((tool, i) => (
+                <ToolItem key={`dup2-${i}`} tool={tool} />
+            ))}
+        </motion.div>
+
+        <motion.div className="flex flex-shrink-0" initial={{ x: reverse ? "-100%" : "0%" }} animate={{ x: reverse ? "0%" : "-100%" }} transition={{ duration: 40, ease: "linear", repeat: Infinity }}>
+            {tools.map((tool, i) => (
+                <ToolItem key={`2-${i}`} tool={tool} />
+            ))}
+            {tools.map((tool, i) => (
+                <ToolItem key={`2-dup-${i}`} tool={tool} />
+            ))}
+            {tools.map((tool, i) => (
+                <ToolItem key={`2-dup2-${i}`} tool={tool} />
+            ))}
+        </motion.div>
     </div>
 );
 
 const ToolsAndFrameworks = () => {
-    // Memisahkan data
-    const frontendTools = toolsData.find((cat) => cat.category === "Frontend")?.tools || [];
-    const otherTools = toolsData.filter((cat) => cat.category !== "Frontend").flatMap((cat) => cat.tools);
+    const allTools = toolsData.flatMap((cat) => cat.tools);
+    const half = Math.ceil(allTools.length / 2);
+    const row1 = allTools.slice(0, half);
+    const row2 = allTools.slice(half);
 
     return (
-        <section id="tools-section" className="mb-40">
-            <h2 className="text-3xl font-bold text-center mb-12 text-white">Tools & Frameworks</h2>
+        <section id="tools-section" className="py-24 overflow-hidden">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-16">
+                <h2 className="text-sm font-medium tracking-widest uppercase text-neutral-500 mb-2">My Toolbox</h2>
+            </motion.div>
 
-            <div className="flex flex-col gap-6">
-                {/* Baris pertama: Frontend (Maju) */}
-                <MarqueeRow tools={frontendTools} />
-
-                {/* Baris kedua: Sisanya (Mundur) */}
-                <MarqueeRow tools={otherTools} reverse={true} />
+            <div className="flex flex-col gap-12">
+                <MarqueeRow tools={row1} />
+                <MarqueeRow tools={row2} reverse={true} />
             </div>
         </section>
     );

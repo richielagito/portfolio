@@ -1,56 +1,34 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { faGithub, faLinkedin, faSquareInstagram } from "@fortawesome/free-brands-svg-icons";
-
-gsap.registerPlugin(ScrollTrigger);
+import { faGithub, faLinkedin, faInstagram } from "@fortawesome/free-brands-svg-icons";
+import { ArrowUpRight } from "lucide-react";
 
 const Contact = () => {
-    const contactRef = useRef(null);
-
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            gsap.fromTo(
-                contactRef.current,
-                { opacity: 0, y: 50 },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: contactRef.current,
-                        start: "top 85%",
-                        toggleActions: "play none none none",
-                    },
-                }
-            );
-        }, contactRef);
-
-        return () => ctx.revert();
-    }, []);
-
     return (
-        <section id="contact" className="text-center mb-20">
-            <div ref={contactRef}>
-                <h2 className="text-3xl font-bold mb-4 text-white">Got something in mind?</h2>
-                <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-8">I’m always open to collaborations, new ideas, and projects that push creative boundaries. Let's talk!</p>
-                <div className="mt-4">
-                    <a href="https://www.github.com/richielagito" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white mx-4 transition-color duration-300 ease-in-out">
-                        <FontAwesomeIcon icon={faGithub} size="2x" />
-                    </a>
-                    <a href="https://www.linkedin.com/in/richie-lagito-8769bb226" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white mx-4 transition-color duration-300 ease-in-out">
-                        <FontAwesomeIcon icon={faLinkedin} size="2x" />
-                    </a>
-                    <a href="https://www.instagram.com/richielagito_/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white mx-4 transition-color duration-300 ease-in-out">
-                        <FontAwesomeIcon icon={faSquareInstagram} size="2x" />
-                    </a>
+        <section id="contact" className="py-32 flex flex-col items-center justify-center text-center">
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="flex flex-col items-center">
+                <h2 className="text-6xl md:text-9xl font-semibold tracking-tighter text-foreground mb-8">Let's Talk</h2>
+                <p className="text-xl md:text-2xl text-neutral-500 font-light max-w-2xl mb-12">Have a project in mind? or just want to verify if I'm a robot?</p>
+
+                <a href="mailto:richielagito1@gmail.com" className="group relative inline-flex items-center gap-3 px-8 py-4 bg-foreground text-black rounded-full overflow-hidden transition-transform hover:scale-105">
+                    <span className="relative z-10 text-lg font-medium">Get in touch</span>
+                    <ArrowUpRight className="relative z-10 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                </a>
+
+                <div className="flex gap-8 mt-16">
+                    {[
+                        { icon: faGithub, link: "https://www.github.com/richielagito" },
+                        { icon: faLinkedin, link: "https://www.linkedin.com/in/richie-lagito-8769bb226" },
+                        { icon: faInstagram, link: "https://www.instagram.com/richielagito_/" },
+                    ].map((social, i) => (
+                        <motion.a key={i} href={social.link} target="_blank" rel="noopener noreferrer" whileHover={{ y: -5 }} className="text-neutral-500 hover:text-foreground transition-colors text-2xl">
+                            <FontAwesomeIcon icon={social.icon} />
+                        </motion.a>
+                    ))}
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 };
