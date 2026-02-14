@@ -6,7 +6,7 @@ import { ArrowDownRight } from "lucide-react";
 import { FlipWords } from "./ui/FlipWords";
 
 const Header = ({ onLoaded, startAnimation }) => {
-    const words = ["Design", "Challenge", "Concept", "Strategy"];
+    const words = ["Design", "Challenge", "Concept", "Ideas"];
 
     useEffect(() => {
         // Trigger load completion after a short delay
@@ -55,12 +55,13 @@ const Header = ({ onLoaded, startAnimation }) => {
 
                 {/* Main Heading */}
                 <h1 className="text-5xl md:text-7xl font-semibold tracking-tighter text-foreground mb-8 leading-[1]">
-                    You bring the <FlipWords words={words} className="text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] px-0" /> <br />I handle the code.
+                    You bring the <br className="block md:hidden" />
+                    <FlipWords words={words} className="text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)] px-0" /> <br />I handle the rest.
                 </h1>
 
                 {/* Subheading */}
                 <motion.p variants={itemVariants} className="text-lg md:text-xl text-neutral-300 max-w-2xl mx-auto md:mx-0 mb-12 font-light leading-relaxed">
-                    I'm Richie, a developer focused on creating fluid, interactive, and functional web applications with a minimalist design approach.
+                    I'm Richie, a developer who can bring your wildest ideas into reality. Scroll down to see what i can do.
                 </motion.p>
             </motion.div>
 

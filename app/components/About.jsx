@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
-import Stack from "./Stack";
+import FloatingGallery from "./FloatingGallery";
 
 const About = () => {
     const ref = useRef(null);
@@ -18,10 +18,10 @@ const About = () => {
     return (
         <section id="about" className="py-24 md:py-32">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
-                {/* Image Stack */}
+                {/* Floating Gallery */}
                 <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="order-2 md:order-1 flex justify-center">
-                    <div className="relative w-full max-w-sm aspect-square scale-90 md:scale-100">
-                        <Stack randomRotation={true} sensitivity={180} sendToBackOnClick={false} cardDimensions={{ width: 300, height: 300 }} cardsData={images} />
+                    <div className="relative w-full aspect-square">
+                        <FloatingGallery images={images} imageSize={130} />
                     </div>
                 </motion.div>
 
@@ -35,7 +35,7 @@ const About = () => {
                 >
                     <h2 className="text-sm font-medium tracking-widest uppercase text-neutral-500 mb-6">About Me</h2>
                     <p className="text-3xl md:text-4xl leading-tight font-light text-foreground mb-8 text-left">
-                        I'm Richie, <span className="text-neutral-500">a developer with a passion for</span> solving complex problems <span className="text-neutral-500">and creating</span> beautiful experiences.
+                        I'm Richie<span className="text-neutral-500">, a developer with a passion for</span> solving complex problems <span className="text-neutral-500">and creating</span> beautiful experiences.
                     </p>
                     <p className="text-neutral-400 leading-relaxed mb-8 text-lg font-light text-left">Currently an Undergraduate IT Student at Universitas Tarumanagara. Beyond code, I find joy in badminton and culinary adventures.</p>
 
