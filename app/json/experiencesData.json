@@ -1,26 +1,26 @@
 [
     {
         "id": 1,
-        "date": "2025 - 2026",
+        "date": "2025 - Present",
         "role": "Fullstack Developer Intern",
         "company": "Pusat Data Dan Teknologi Informasi UNTAR",
-        "description": "As an Intern at the UNTAR Data and Information Technology Center, I fully contributed to the LINTAR academic management system. My responsibilities included modernizing the system's interface to be more responsive and user-friendly, as well as enhancing backend security and performance for more efficient execution, all while collaborating closely within a cross-functional team.",
-        "images": ["/placeholder1.jpg", "/placeholder2.jpg", "/placeholder3.jpg"]
+        "description": "Contributed to the development of the LINTAR academic management system by modernizing the interface for enhanced responsiveness and user experience. I also optimized backend security and system performance to ensure efficient execution, while collaborating effectively within a cross-functional team to deliver robust technical solutions.",
+        "images": ["/meeting-pusda.jpeg", "/developing-lintar.jpeg", "/meeting-pusda2.jpeg"]
     },
     {
         "id": 2,
-        "date": "2025 - 2025",
+        "date": "2025",
         "role": "Scrum Master",
         "company": "Universitas Tarumanagara",
-        "description": "In my role as Scrum Master, I led a development team in building the \"UploadItIn\" web application for essay grading. By implementing the SCRUM methodology, I successfully increased the project's development efficiency by 2-3 times compared to standard methods.",
-        "images": ["/placeholder1.jpg", "/placeholder2.jpg", "/placeholder3.jpg"]
+        "description": "Led the development team for \"UploadItIn\", an automated essay grading web application. By implementing the SCRUM methodology, I facilitated agile ceremonies and sprint planning, successfully increasing development efficiency by 2-3x compared to standard workflows.",
+        "images": ["/scrum-master.jpeg", "/uploaditin.png"]
     },
     {
         "id": 3,
-        "date": "2024 - 2024",
+        "date": "2024",
         "role": "Project Lead",
         "company": "Universitas Tarumanagara",
-        "description": "As Project Lead, I led and managed a development team from concept to deployment in creating the \"Outfitology\" fashion inspiration website. I was responsible for ensuring the team's productivity and efficiency throughout the development process.",
-        "images": ["/placeholder1.jpg", "/placeholder2.jpg", "/placeholder3.jpg"]
+        "description": "Orchestrated the end-to-end development of \"Outfitology\", a fashion inspiration platform, from concept to deployment. I managed team resources and workflows to ensure high productivity, overseeing the full product lifecycle to ensure deliverables met quality standards.",
+        "images": ["/outfitology.png"]
     }
 ]

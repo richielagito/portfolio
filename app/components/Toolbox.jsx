@@ -69,16 +69,16 @@ const ToolsAndFrameworks = () => {
     const row2 = allTools.slice(half);
 
     return (
-        <section id="tools-section" className="py-24 overflow-hidden">
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-16">
+        <div className="h-full flex flex-col justify-center">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-8">
                 <h2 className="text-sm font-medium tracking-widest uppercase text-neutral-500 mb-2">My Toolbox</h2>
             </motion.div>
 
-            <div className="flex flex-col gap-12">
+            <div className="flex flex-col gap-8">
                 <MarqueeRow tools={row1} />
                 <MarqueeRow tools={row2} reverse={true} />
             </div>
-        </section>
+        </div>
     );
 };
 

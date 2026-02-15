@@ -29,7 +29,7 @@ const ExperienceItem = ({ exp, index, total }) => {
                     <p className="text-neutral-500 font-normal leading-relaxed max-w-xl">{exp.description}</p>
 
                     {/* Experience images */}
-                    {exp.images && exp.images.length > 0 && <FloatingShowcase images={exp.images} imageSize={90} />}
+                    {exp.images && exp.images.length > 0 && <FloatingShowcase images={exp.images} imageWidth={130} imageHeight={90} />}
                 </div>
             </div>
         </motion.div>
@@ -80,7 +80,7 @@ const Experiences = () => {
                             {/* Timeline Dot — Desktop */}
                             <motion.div
                                 className="hidden md:block absolute top-[8px] w-[12px] h-[12px] rounded-full border-2 border-neutral-500 bg-black z-10"
-                                style={{ left: "calc(33.33% - 5px)" }}
+                                style={{ left: "calc(33.33% - 6px)" }}
                                 initial={{ scale: 0, opacity: 0 }}
                                 whileInView={{ scale: 1, opacity: 1 }}
                                 viewport={{ once: true, margin: "-80px" }}
@@ -95,10 +95,10 @@ const Experiences = () => {
 
                             {/* Timeline Dot — Mobile */}
                             <motion.div
-                                className="md:hidden absolute left-[-25px] top-[9px] w-[9px] h-[9px] rounded-full bg-neutral-500 z-10"
+                                className="md:hidden absolute left-[calc(7px_-_2rem)] top-[9px] w-[9px] h-[9px] rounded-full bg-neutral-500 z-20"
                                 initial={{ scale: 0, opacity: 0 }}
                                 whileInView={{ scale: 1, opacity: 1 }}
-                                viewport={{ once: true, margin: "-50px" }}
+                                viewport={{ once: true }}
                                 transition={{
                                     delay: index * 0.15 + 0.2,
                                     duration: 0.4,

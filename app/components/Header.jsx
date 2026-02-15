@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import { motion } from "motion/react";
-import { ArrowDownRight } from "lucide-react";
 import { FlipWords } from "./ui/FlipWords";
 
 const Header = ({ onLoaded, startAnimation }) => {
@@ -61,7 +60,8 @@ const Header = ({ onLoaded, startAnimation }) => {
 
                 {/* Subheading */}
                 <motion.p variants={itemVariants} className="text-lg md:text-xl text-neutral-300 max-w-2xl mx-auto md:mx-0 mb-12 font-light leading-relaxed">
-                    I'm Richie, a developer who can bring your wildest ideas into reality. Scroll down to see what i can do.
+                    I'm Richie, a developer who can bring your wildest ideas into reality. <br />
+                    Scroll down to see what i can do.
                 </motion.p>
             </motion.div>
 

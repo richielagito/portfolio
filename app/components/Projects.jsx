@@ -55,8 +55,6 @@ const ProjectCard = ({ project, index }) => {
                     )}
                 </div>
             </div>
-
-            <div className="w-full h-[1px] bg-neutral-900 mt-12" />
         </motion.div>
     );
 };
@@ -69,7 +67,7 @@ const Projects = () => {
         <section id="projects" className="py-24 relative">
             <div className="flex flex-col items-start mb-20">
                 <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-6xl md:text-8xl font-light tracking-tighter text-foreground mb-6">
-                    Selected Work
+                    Projects
                 </motion.h2>
                 <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} viewport={{ once: true }} className="text-xl text-neutral-500 max-w-2xl font-light">
                     A collection of projects exploring the boundaries of design and technology.

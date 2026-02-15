@@ -18,9 +18,12 @@ body {
     font-family: var(--font-sans);
     margin: 0;
     padding: 0;
-    height: 100%;
-    width: 100%;
     overscroll-behavior: none;
+    /* Removed fixed height/width to prevent double scrollbars */
+}
+
+html {
+    height: auto;
     overflow-x: hidden;
 }
 
@@ -43,4 +46,39 @@ html {
 .no-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+}
+
+/* Custom Styled Scrollbar */
+.styled-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: #737373 transparent; /* Firefox */
+}
+
+/* Chrome, Edge, and Safari */
+.styled-scrollbar::-webkit-scrollbar {
+    width: 8px; /* Vertical scrollbar width */
+    height: 8px; /* Horizontal scrollbar height */
+}
+
+.styled-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #737373; /* neutral-500 */
+    border-radius: 9999px; /* Fully rounded */
+    border: 2px solid transparent; /* Creates padding effect if background-clip is used, but here simpler */
+    background-clip: content-box; /* Optional: adds space around thumb */
+}
+
+.styled-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #a3a3a3; /* neutral-400 */
+}
+
+/* --- Scrollytelling --- */
+.scrollytelling-glow {
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 0 40px 0 rgba(255, 255, 255, 0.04),
+        0 20px 60px -10px rgba(0, 0, 0, 0.6);
 }

@@ -23,7 +23,7 @@ const FLOAT_CONFIGS = [
     { driftX: 8, driftY: 6, duration: 6.5, rotate: -2, delay: 0.7 },
 ];
 
-function ShowcaseImage({ src, alt, index, imageSize = 100 }) {
+function ShowcaseImage({ src, alt, index, imageWidth = 130, imageHeight = 90 }) {
     const layout = SHOWCASE_POSITIONS[index % SHOWCASE_POSITIONS.length];
     const config = FLOAT_CONFIGS[index % FLOAT_CONFIGS.length];
 
@@ -60,8 +60,8 @@ function ShowcaseImage({ src, alt, index, imageSize = 100 }) {
                 <div
                     className="relative rounded-xl overflow-hidden border border-white/10 backdrop-blur-sm"
                     style={{
-                        width: imageSize,
-                        height: imageSize,
+                        width: imageWidth,
+                        height: imageHeight,
                         boxShadow: "0 0 20px rgba(255,255,255,0.05), 0 8px 32px rgba(0,0,0,0.4)",
                     }}
                 >
@@ -75,13 +75,13 @@ function ShowcaseImage({ src, alt, index, imageSize = 100 }) {
     );
 }
 
-export default function FloatingShowcase({ images = [], imageSize = 100 }) {
+export default function FloatingShowcase({ images = [], imageWidth = 130, imageHeight = 90 }) {
     if (!images || images.length === 0) return null;
 
     return (
-        <div className="relative w-full h-[160px] md:h-[180px] mt-6">
+        <div className="relative w-full h-[130px] md:h-[150px] mt-6">
             {images.map((src, index) => (
-                <ShowcaseImage key={`${src}-${index}`} src={src} alt={`showcase-${index}`} index={index} imageSize={imageSize} />
+                <ShowcaseImage key={`${src}-${index}`} src={src} alt={`showcase-${index}`} index={index} imageWidth={imageWidth} imageHeight={imageHeight} />
             ))}
         </div>
     );
