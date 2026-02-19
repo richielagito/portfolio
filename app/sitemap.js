@@ -1,7 +1,7 @@
 export default function sitemap() {
     return [
         {
-            url: "https://richielagito.vercel.app",
+            url: "https://www.richielagito.com",
             lastModified: new Date(),
             changeFrequency: "monthly",
             priority: 1,
