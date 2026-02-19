@@ -30,7 +30,7 @@ export default function Home() {
                 <Header onLoaded={handleLoadComplete} startAnimation={!isLoading} />
                 <Scrollytelling />
 
-                <main className="container mx-auto w-[90%] max-w-6xl relative z-10">
+                <main className="container mx-auto w-[90%] max-w-5xl relative z-10">
                     <About />
                     <Experiences />
                     <Projects />

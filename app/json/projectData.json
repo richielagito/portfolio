@@ -10,12 +10,12 @@
     },
     {
         "id": 2,
-        "title": "Elite Pizza Masterclass",
-        "description": "Elite Pizza Masterclass is a landing page for booking a pizza course.",
-        "imageUrl": "/elitepizzamasterclass.png",
-        "webUrl": "https://elitepizzamasterclass.vercel.app",
-        "githubUrl": "https://github.com/richielagito/PizzaCourse",
-        "tech": ["Landing Page", "HTML", "CSS"]
+        "title": "Kopi Kenangan",
+        "description": "Kopi Kenangan is a modern, interactive landing page for Kopi Kenangan, showcasing their brand and products through engaging storytelling.",
+        "imageUrl": "/kopi-kenangan.png",
+        "webUrl": "https://kopi-kenangan.vercel.app",
+        "githubUrl": "https://github.com/richielagito/kopi-kenangan",
+        "tech": ["Scrolly-telling", "Next.js", "Tailwind CSS"]
     },
     {
         "id": 3,
@@ -46,6 +46,15 @@
     },
     {
         "id": 6,
+        "title": "Elite Pizza Masterclass",
+        "description": "Elite Pizza Masterclass is a landing page for booking a pizza course.",
+        "imageUrl": "/elitepizzamasterclass.png",
+        "webUrl": "https://elitepizzamasterclass.vercel.app",
+        "githubUrl": "https://github.com/richielagito/PizzaCourse",
+        "tech": ["Landing Page", "HTML", "CSS"]
+    },
+    {
+        "id": 7,
         "title": "Ube",
         "description": "Ube is an e-commerce website for selling various products online.",
         "imageUrl": "/ube.png",
@@ -54,7 +63,7 @@
         "tech": ["E-commerce", "Laravel", "PHP"]
     },
     {
-        "id": 7,
+        "id": 8,
         "title": "Gedagedi",
         "description": "Gedagedi is a social media mobile application that let users post threads and interact with other users.",
         "imageUrl": "/gedagedi.png",

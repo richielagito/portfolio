@@ -14,10 +14,10 @@ const CHAPTER_RANGES = [
 
 const projects = [
     {
-        category: "Landing Page",
-        title: "Aether Lens",
-        image: "/aetherlens.png",
-        tagline: "Pixel-perfect landing pages that convert visitors into believers.",
+        category: "Scrolly-telling Landing Page",
+        title: "Kopi Kenangan",
+        image: "/kopi-kenangan.png",
+        tagline: "A modern, interactive landing page for Kopi Kenangan, showcasing their brand and products through engaging storytelling.",
     },
     {
         category: "SaaS Dashboard",
@@ -80,7 +80,7 @@ const Chapter = ({ project, index, scrollYProgress }) => {
                 </div>
 
                 {/* Image side — right on desktop */}
-                <motion.div className="relative w-[85vw] md:w-[55%] max-w-2xl aspect-[16/10] rounded-xl overflow-hidden scrollytelling-glow mt-8 md:mt-0" style={{ scale: imgScale, opacity: imgOpacity }}>
+                <motion.div className="relative w-[85vw] md:w-[55%] max-w-2xl aspect-video rounded-xl overflow-hidden scrollytelling-glow mt-8 md:mt-0" style={{ scale: imgScale, opacity: imgOpacity }}>
                     <Image src={project.image} alt={project.title} fill className="object-cover" sizes="(max-width: 768px) 85vw, 55vw" priority={index === 0} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
                 </motion.div>
