@@ -76,12 +76,10 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${outfit.variable} ${inter.variable} font-sans antialiased bg-background text-foreground`}
+        className={`${outfit.variable} ${inter.variable} font-sans antialiased text-foreground`}
       >
-        <SmoothScroll>
-          <GlobalBackground />
-          {children}
-        </SmoothScroll>
+        <GlobalBackground />
+        <SmoothScroll>{children}</SmoothScroll>
         <Analytics />
         <SpeedInsights />
       </body>

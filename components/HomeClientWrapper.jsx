@@ -22,7 +22,7 @@ export default function HomeClientWrapper({ children }) {
         )}
       </AnimatePresence>
 
-      <div className="min-h-screen bg-background text-foreground overflow-x-clip selection:bg-neutral-800 selection:text-white">
+      <div className="relative z-10 min-h-screen overflow-x-clip selection:bg-neutral-800 selection:text-white">
         <Navbar />
         <Header onLoaded={handleLoadComplete} startAnimation={!isLoading} />
         <Scrollytelling />
