@@ -122,8 +122,12 @@ const Particles = ({
         const resize = () => {
             const width = container.clientWidth;
             const height = container.clientHeight;
-            renderer.setSize(width, height);
-            camera.perspective({ aspect: gl.canvas.width / gl.canvas.height });
+            
+            // Only resize if dimensions actually changed
+            if (gl.canvas.width !== width * pixelRatio || gl.canvas.height !== height * pixelRatio) {
+                renderer.setSize(width, height);
+                camera.perspective({ aspect: gl.canvas.width / gl.canvas.height });
+            }
         };
         window.addEventListener("resize", resize, false);
         resize();

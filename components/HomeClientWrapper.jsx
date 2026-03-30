@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { AnimatePresence } from "motion/react";
 import Navbar from "@/components/Navbar.jsx";
-import Header from "@/components/Header.jsx";
 import Scrollytelling from "@/components/Scrollytelling.jsx";
 import LoadingScreen from "@/components/LoadingScreen.jsx";
 
@@ -24,8 +23,7 @@ export default function HomeClientWrapper({ children }) {
 
       <div className="relative z-10 min-h-screen overflow-x-clip selection:bg-neutral-800 selection:text-white">
         <Navbar />
-        <Header onLoaded={handleLoadComplete} startAnimation={!isLoading} />
-        <Scrollytelling />
+        <Scrollytelling onLoaded={handleLoadComplete} startAnimation={!isLoading} />
         {children}
       </div>
     </>
