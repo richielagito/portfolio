@@ -27,8 +27,7 @@ export default function Home() {
 
             <div className="min-h-screen bg-background text-foreground overflow-x-clip selection:bg-neutral-800 selection:text-white">
                 <Navbar />
-                <Header onLoaded={handleLoadComplete} startAnimation={!isLoading} />
-                <Scrollytelling />
+                <Scrollytelling onLoaded={handleLoadComplete} startAnimation={!isLoading} />
 
                 <main className="container mx-auto w-[90%] max-w-5xl relative z-10">
                     <About />
