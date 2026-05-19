@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform, useSpring } from "motion/react";
+import { m, useScroll, useTransform, useSpring } from "motion/react";
 
 import Header from "@/components/Header.jsx";
 
@@ -50,30 +50,30 @@ const Chapter = ({ project, index, scrollYProgress }) => {
     const taglineY = useTransform(scrollYProgress, [start + 0.1, snapPoint, end], [10, 0, -10]);
 
     return (
-        <motion.div className="absolute inset-0 flex items-center justify-center px-6 md:px-16 pointer-events-none" style={{ opacity }}>
-            <motion.div className="flex flex-col md:flex-row md:items-center md:gap-12 lg:gap-20 items-center justify-center w-full max-w-6xl">
+        <m.div className="absolute inset-0 flex items-center justify-center px-6 md:px-16 pointer-events-none" style={{ opacity }}>
+            <m.div className="flex flex-col md:flex-row md:items-center md:gap-12 lg:gap-20 items-center justify-center w-full max-w-6xl">
                 {/* Text side — left on desktop */}
                 <div className="flex flex-col items-center md:items-start md:w-[40%] shrink-0">
-                    <motion.span className="text-xs md:text-sm font-medium tracking-[0.25em] uppercase text-neutral-500 mb-4" style={{ y: textY }}>
+                    <m.span className="text-xs md:text-sm font-medium tracking-[0.25em] uppercase text-neutral-500 mb-4" style={{ y: textY }}>
                         {project.category}
-                    </motion.span>
+                    </m.span>
 
-                    <motion.h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-semibold tracking-tighter text-foreground mb-6 md:mb-8 text-center md:text-left leading-[1]" style={{ y: textY }}>
+                    <m.h2 className="text-5xl md:text-6xl lg:text-7xl font-display font-semibold tracking-tighter text-foreground mb-6 md:mb-8 text-center md:text-left leading-[1]" style={{ y: textY }}>
                         {project.title}
-                    </motion.h2>
+                    </m.h2>
 
-                    <motion.p className="text-base md:text-lg text-neutral-400 font-light text-center md:text-left max-w-md" style={{ opacity: taglineOpacity, y: taglineY }}>
+                    <m.p className="text-base md:text-lg text-neutral-400 font-light text-center md:text-left max-w-md" style={{ opacity: taglineOpacity, y: taglineY }}>
                         {project.tagline}
-                    </motion.p>
+                    </m.p>
                 </div>
 
                 {/* Image side — right on desktop */}
-                <motion.div className="relative w-[85vw] md:w-[55%] max-w-2xl aspect-video rounded-xl overflow-hidden scrollytelling-glow mt-8 md:mt-0" style={{ scale: imgScale, opacity: imgOpacity }}>
+                <m.div className="relative w-[85vw] md:w-[55%] max-w-2xl aspect-video rounded-xl overflow-hidden scrollytelling-glow mt-8 md:mt-0" style={{ scale: imgScale, opacity: imgOpacity }}>
                     <Image src={project.image} alt={project.title} fill className="object-cover" sizes="(max-width: 768px) 85vw, 55vw" priority={index === 0} />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
-                </motion.div>
-            </motion.div>
-        </motion.div>
+                </m.div>
+            </m.div>
+        </m.div>
     );
 };
 
@@ -109,14 +109,14 @@ const Scrollytelling = ({ onLoaded, startAnimation }) => {
                 <div className="sticky top-0 left-0 h-0 w-full z-10 pointer-events-none overflow-visible">
                     <div className="h-screen w-full relative">
                         {/* Header Snap Point 0.0 */}
-                        <motion.div className="absolute inset-0" style={{ opacity: headerOpacity, y: headerY, scale: headerScale }}>
+                        <m.div className="absolute inset-0" style={{ opacity: headerOpacity, y: headerY, scale: headerScale }}>
                             <Header onLoaded={onLoaded} startAnimation={startAnimation} />
-                        </motion.div>
+                        </m.div>
 
                         <IntroOverlay scrollYProgress={smoothProgress} />
 
                         {projects.map((project, index) => (
-                            <Chapter key={index} project={project} index={index} scrollYProgress={smoothProgress} />
+                            <Chapter key={project.title} project={project} index={index} scrollYProgress={smoothProgress} />
                         ))}
 
                         <ProgressDots scrollYProgress={smoothProgress} />
@@ -142,13 +142,13 @@ const IntroOverlay = ({ scrollYProgress }) => {
     const scale = useTransform(scrollYProgress, [0, 0.25, 0.5], [0.98, 1, 0.98]);
 
     return (
-        <motion.div className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-16 pointer-events-none" style={{ opacity, y, scale }}>
-            <span className="text-xs md:text-sm font-medium tracking-[0.25em] uppercase text-neutral-500 mb-4">What I Can Do</span>
+        <m.div className="absolute inset-0 flex flex-col items-center justify-center px-6 md:px-16 pointer-events-none" style={{ opacity, y, scale }}>
+            <span className="text-xs md:text-sm font-medium tracking-[0.25em] uppercase text-neutral-500 mb-4">The good stuff</span>
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-light tracking-tighter text-foreground text-center leading-[1.1]">
-                Crafting Digital <br />
-                <span className="font-semibold">Experiences</span>
+                Things I've <br />
+                <span className="font-semibold">Recently Built</span>
             </h2>
-        </motion.div>
+        </m.div>
     );
 };
 
@@ -158,17 +158,17 @@ const ProgressDots = ({ scrollYProgress }) => {
     const progressHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
     return (
-        <motion.div className="absolute right-8 top-1/2 -translate-y-1/2 hidden md:flex flex-col items-center gap-4 z-20" style={{ opacity: dotsOpacity }}>
+        <m.div className="absolute right-8 top-1/2 -translate-y-1/2 hidden md:flex flex-col items-center gap-4 z-20" style={{ opacity: dotsOpacity }}>
             <div className="relative w-px h-20 bg-neutral-800 rounded-full overflow-hidden">
-                <motion.div className="absolute top-0 left-0 w-full bg-gradient-to-b from-white to-neutral-400 rounded-full" style={{ height: progressHeight }} />
+                <m.div className="absolute top-0 left-0 w-full bg-gradient-to-b from-white to-neutral-400 rounded-full" style={{ height: progressHeight }} />
             </div>
 
             <div className="flex flex-col gap-2 items-center">
-                {[0, 0.25, 0.5, 0.75, 1].map((mid, i) => (
-                    <DotIndicator key={i} scrollYProgress={scrollYProgress} chapterMid={mid} />
+                {[0, 0.25, 0.5, 0.75, 1].map((mid) => (
+                    <DotIndicator key={mid} scrollYProgress={scrollYProgress} chapterMid={mid} />
                 ))}
             </div>
-        </motion.div>
+        </m.div>
     );
 };
 
@@ -178,7 +178,7 @@ const DotIndicator = ({ scrollYProgress, chapterMid }) => {
     const dotOpacity = useTransform(scrollYProgress, [chapterMid - step * 0.5, chapterMid, chapterMid + step * 0.5], [0.3, 1, 0.3]);
     const dotScale = useTransform(scrollYProgress, [chapterMid - step * 0.5, chapterMid, chapterMid + step * 0.5], [1, 1.8, 1]);
 
-    return <motion.div className="w-1.5 h-1.5 rounded-full bg-white" style={{ opacity: dotOpacity, scale: dotScale }} />;
+    return <m.div className="size-1.5 rounded-full bg-white" style={{ opacity: dotOpacity, scale: dotScale }} />;
 };
 
 export default Scrollytelling;

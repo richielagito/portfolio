@@ -1,7 +1,7 @@
 "use client";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import toolsData from "@/lib/data/toolsData.json";
 import {
   faReact,
@@ -49,39 +49,39 @@ const ToolItem = ({ tool }) => (
 
 const MarqueeRow = ({ tools, reverse = false }) => (
   <div className="flex overflow-hidden py-6 select-none relative mask-linear-fade">
-    <motion.div
+    <m.div
       className="flex flex-shrink-0"
       initial={{ x: reverse ? "-100%" : "0%" }}
       animate={{ x: reverse ? "0%" : "-100%" }}
       transition={{ duration: 40, ease: "linear", repeat: Infinity }}
     >
-      {tools.map((tool, i) => (
-        <ToolItem key={i} tool={tool} />
+      {tools.map((tool) => (
+        <ToolItem key={tool.name} tool={tool} />
       ))}
-      {tools.map((tool, i) => (
-        <ToolItem key={`dup-${i}`} tool={tool} />
+      {tools.map((tool) => (
+        <ToolItem key={`dup-${tool.name}`} tool={tool} />
       ))}
-      {tools.map((tool, i) => (
-        <ToolItem key={`dup2-${i}`} tool={tool} />
+      {tools.map((tool) => (
+        <ToolItem key={`dup2-${tool.name}`} tool={tool} />
       ))}
-    </motion.div>
+    </m.div>
 
-    <motion.div
+    <m.div
       className="flex flex-shrink-0"
       initial={{ x: reverse ? "-100%" : "0%" }}
       animate={{ x: reverse ? "0%" : "-100%" }}
       transition={{ duration: 40, ease: "linear", repeat: Infinity }}
     >
-      {tools.map((tool, i) => (
-        <ToolItem key={`2-${i}`} tool={tool} />
+      {tools.map((tool) => (
+        <ToolItem key={`2-${tool.name}`} tool={tool} />
       ))}
-      {tools.map((tool, i) => (
-        <ToolItem key={`2-dup-${i}`} tool={tool} />
+      {tools.map((tool) => (
+        <ToolItem key={`2-dup-${tool.name}`} tool={tool} />
       ))}
-      {tools.map((tool, i) => (
-        <ToolItem key={`2-dup2-${i}`} tool={tool} />
+      {tools.map((tool) => (
+        <ToolItem key={`2-dup2-${tool.name}`} tool={tool} />
       ))}
-    </motion.div>
+    </m.div>
   </div>
 );
 
@@ -93,7 +93,7 @@ const ToolsAndFrameworks = () => {
 
   return (
     <div className="h-full flex flex-col justify-center">
-      <motion.div
+      <m.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
@@ -102,7 +102,7 @@ const ToolsAndFrameworks = () => {
         <h2 className="text-sm font-medium tracking-widest uppercase text-neutral-500 mb-2">
           My Toolbox
         </h2>
-      </motion.div>
+      </m.div>
 
       <div className="flex flex-col gap-8">
         <MarqueeRow tools={row1} />

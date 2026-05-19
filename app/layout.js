@@ -4,6 +4,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 import GlobalBackground from "@/components/GlobalBackground";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { MotionConfig, LazyMotion, domMax } from "motion/react";
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -79,7 +80,11 @@ export default function RootLayout({ children }) {
         className={`${outfit.variable} ${inter.variable} font-sans antialiased text-foreground`}
       >
         <GlobalBackground />
-        <SmoothScroll>{children}</SmoothScroll>
+        <LazyMotion features={domMax}>
+          <MotionConfig reducedMotion="user">
+            <SmoothScroll>{children}</SmoothScroll>
+          </MotionConfig>
+        </LazyMotion>
         <Analytics />
         <SpeedInsights />
       </body>

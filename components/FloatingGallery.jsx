@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useEffect, useCallback } from "react";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { m, useMotionValue, useSpring, useTransform } from "motion/react";
 import Image from "next/image";
 
 // Predefined layout positions (percentage-based) for up to 6 images
@@ -24,6 +24,8 @@ const FLOAT_CONFIGS = [
   { driftX: 8, driftY: 16, duration: 9, rotate: 5, delay: 0.8 },
   { driftX: 11, driftY: 9, duration: 6.5, rotate: -2, delay: 0.3 },
 ];
+
+const EMPTY_IMAGES = [];
 
 function FloatingImage({
   src,
@@ -83,7 +85,7 @@ function FloatingImage({
   );
 
   return (
-    <motion.div
+    <m.div
       className="absolute cursor-grab active:cursor-grabbing select-none"
       style={{
         left: `${layout.x}%`,
@@ -113,7 +115,7 @@ function FloatingImage({
       }}
     >
       {/* Floating drift animation wrapper */}
-      <motion.div
+      <m.div
         animate={
           isDragging
             ? {}
@@ -134,7 +136,7 @@ function FloatingImage({
         }
       >
         {/* The actual image card — glow applied directly */}
-        <motion.div
+        <m.div
           className="relative rounded-xl overflow-hidden border border-white/10 backdrop-blur-sm"
           style={{
             width: imageSize,
@@ -155,7 +157,7 @@ function FloatingImage({
           />
 
           {/* Reflective shine on hover */}
-          <motion.div
+          <m.div
             className="absolute inset-0 z-20 pointer-events-none"
             style={{
               background:
@@ -164,13 +166,13 @@ function FloatingImage({
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ duration: 0.3 }}
           />
-        </motion.div>
-      </motion.div>
-    </motion.div>
+        </m.div>
+      </m.div>
+    </m.div>
   );
 }
 
-export default function FloatingGallery({ images = [], imageSize = 140 }) {
+export default function FloatingGallery({ images = EMPTY_IMAGES, imageSize = 140 }) {
   const containerRef = useRef(null);
   // Capture container dimensions ONCE on mount — immune to Safari toolbar changes
   const [stableConstraints, setStableConstraints] = useState(null);
@@ -200,7 +202,7 @@ export default function FloatingGallery({ images = [], imageSize = 140 }) {
       {/* Subtle ambient glow in the center of the gallery */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
         <div
-          className="w-48 h-48 rounded-full opacity-[0.04]"
+          className="size-48 rounded-full opacity-[0.04]"
           style={{
             background:
               "radial-gradient(circle, rgba(255,255,255,1) 0%, transparent 70%)",
@@ -221,14 +223,14 @@ export default function FloatingGallery({ images = [], imageSize = 140 }) {
         ))}
 
       {/* Instructional hint */}
-      <motion.p
+      <m.p
         className="absolute bottom-2 left-1/2 -translate-x-1/2 text-[11px] text-neutral-600 tracking-wider uppercase select-none pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
       >
         drag to explore
-      </motion.p>
+      </m.p>
     </div>
   );
 }

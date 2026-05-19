@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { GitHubCalendar } from "react-github-calendar";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 
 const GithubGallery = () => {
@@ -25,17 +25,17 @@ const GithubGallery = () => {
 
     return (
         <div className="h-full flex flex-col justify-between">
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-8">
+            <m.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-8">
                 <h2 className="text-sm font-medium tracking-widest uppercase text-neutral-500 mb-2">Code Activity</h2>
                 <div className="flex items-center justify-center gap-2">
                     <a href="https://github.com/richielagito" target="_blank" rel="noopener noreferrer" className="text-2xl md:text-3xl font-light text-foreground hover:text-neutral-300 transition-colors flex items-center gap-2 group">
                         GitHub Contributions
-                        <ArrowUpRight className="w-5 h-5 opacity-0 hidden md:block group-hover:opacity-100 transition-opacity duration-300" />
+                        <ArrowUpRight className="size-5 opacity-0 hidden md:block group-hover:opacity-100 transition-opacity duration-300" />
                     </a>
                 </div>
-            </motion.div>
+            </m.div>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="flex justify-center w-full">
+            <m.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="flex justify-center w-full">
                 <div className="p-4 border border-neutral-800 rounded-2xl bg-black/20 hover:border-neutral-700 transition-colors duration-500 backdrop-blur-sm w-full max-w-full overflow-hidden">
                     <div className="overflow-x-auto pb-2 -mb-2 styled-scrollbar">
                         <div className="min-w-full w-full">
@@ -43,7 +43,7 @@ const GithubGallery = () => {
                         </div>
                     </div>
                 </div>
-            </motion.div>
+            </m.div>
 
             <div className="flex justify-center mt-6">
                 <a

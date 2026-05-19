@@ -1,12 +1,12 @@
 "use client";
 
 import React from "react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import Image from "next/image";
 
 const LoadingScreen = () => {
     return (
-        <motion.div 
+        <m.div 
             initial={{ height: "100vh" }} 
             exit={{ height: 0 }} 
             transition={{ duration: 0.8, ease: "easeInOut" }} 
@@ -19,7 +19,7 @@ const LoadingScreen = () => {
                     <Image src="/logoRLdark.svg" alt="Logo" width={100} height={100} className="object-contain" priority />
                 </div>
             </div>
-        </motion.div>
+        </m.div>
     );
 };
 

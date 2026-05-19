@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { m, useInView } from "motion/react";
 import FloatingGallery from "./FloatingGallery";
 
 const About = () => {
@@ -19,14 +19,14 @@ const About = () => {
         <section id="about" className="py-24 md:py-32">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
                 {/* Floating Gallery */}
-                <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="order-2 md:order-1 flex justify-center">
+                <m.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }} viewport={{ once: true }} className="order-2 md:order-1 flex justify-center">
                     <div className="relative w-full aspect-square">
                         <FloatingGallery images={images} imageSize={130} />
                     </div>
-                </motion.div>
+                </m.div>
 
                 {/* Content */}
-                <motion.div
+                <m.div
                     ref={ref}
                     className="order-1 md:order-2 flex flex-col items-start text-left"
                     initial={{ opacity: 0, x: 50 }}
@@ -41,7 +41,7 @@ const About = () => {
 
                     <div className="flex flex-wrap gap-3">
                         {["Front-end", "React", "Next.js", "Motion", "UI/UX"].map((skill, i) => (
-                            <motion.span
+                            <m.span
                                 key={skill}
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
@@ -49,10 +49,10 @@ const About = () => {
                                 className="px-4 py-2 rounded-full border border-neutral-800 bg-neutral-900/50 text-neutral-300 text-sm"
                             >
                                 {skill}
-                            </motion.span>
+                            </m.span>
                         ))}
                     </div>
-                </motion.div>
+                </m.div>
             </div>
         </section>
     );

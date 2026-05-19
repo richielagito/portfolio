@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { m, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -86,17 +86,18 @@ const Navbar = () => {
   return (
     <>
       {/* Top Bar */}
-      <motion.nav
+      <m.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={`fixed top-0 left-0 w-full z-50 px-6 py-6 flex justify-between items-center transition-colors duration-300 ${scrolled ? "mix-blend-difference text-white" : ""}`}
       >
-        <div className="relative w-12 h-12">
+        <div className="relative size-12">
           <Image
             src="/logoRL.svg"
             alt="Richie Lagito"
             fill
+            sizes="48px"
             className="object-contain"
             priority
           />
@@ -117,12 +118,12 @@ const Navbar = () => {
             className={`block h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? "w-8 -rotate-45 -translate-y-2" : "w-4 group-hover:w-8"}`}
           ></span>
         </button>
-      </motion.nav>
+      </m.nav>
 
       {/* Fullscreen Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div
+          <m.div
             variants={menuVariants}
             initial="closed"
             animate="open"
@@ -144,9 +145,9 @@ const Navbar = () => {
                 <p className="text-neutral-400">Jakarta, Indonesia</p>
 
                 <div className="flex gap-6 mt-8">
-                  {socialLinks.map((social, i) => (
+                  {socialLinks.map((social) => (
                     <a
-                      key={i}
+                      key={social.link}
                       href={social.link}
                       target="_blank"
                       rel="noreferrer"
@@ -160,15 +161,15 @@ const Navbar = () => {
 
               {/* Right: Navigation Links */}
               <div className="flex-1 flex flex-col justify-center items-start md:items-end w-full">
-                <motion.div
+                <m.div
                   variants={linkContainerVariants}
                   initial="hidden"
                   animate="show"
                   className="flex flex-col gap-2 md:gap-4"
                 >
-                  {navLinks.map((link, index) => (
-                    <motion.div
-                      key={index}
+                  {navLinks.map((link) => (
+                    <m.div
+                      key={link.title}
                       variants={linkVariants}
                       className="overflow-visible"
                     >
@@ -179,18 +180,18 @@ const Navbar = () => {
                       >
                         {link.title}
                       </Link>
-                    </motion.div>
+                    </m.div>
                   ))}
-                </motion.div>
+                </m.div>
               </div>
 
               {/* Mobile Contact Info (Bottom) */}
               <div className="md:hidden mt-auto mb-10 w-full border-t border-neutral-800 pt-8">
                 <div className="flex justify-between items-center">
                   <div className="flex gap-6">
-                    {socialLinks.map((social, i) => (
+                    {socialLinks.map((social) => (
                       <a
-                        key={i}
+                        key={`mob-${social.link}`}
                         href={social.link}
                         target="_blank"
                         rel="noreferrer"
@@ -200,13 +201,13 @@ const Navbar = () => {
                       </a>
                     ))}
                   </div>
-                  <span className="text-neutral-600 text-sm">
+                  <span className="text-neutral-600 text-sm" suppressHydrationWarning>
                     © {new Date().getFullYear()}
                   </span>
                 </div>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </AnimatePresence>
     </>

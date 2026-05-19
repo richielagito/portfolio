@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { m, useScroll, useTransform } from "motion/react";
 import experiencesData from "@/lib/data/experiencesData.json";
 import FloatingShowcase from "./FloatingShowcase";
 
@@ -9,7 +9,7 @@ const ExperienceItem = ({ exp, index, total }) => {
   const isLast = index === total - 1;
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -48,7 +48,7 @@ const ExperienceItem = ({ exp, index, total }) => {
           )}
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 
@@ -66,7 +66,7 @@ const Experiences = () => {
 
   return (
     <section id="experiences" className="py-24">
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -78,7 +78,7 @@ const Experiences = () => {
         <p className="text-3xl md:text-4xl font-light text-foreground">
           My professional journey.
         </p>
-      </motion.div>
+      </m.div>
 
       {/* Timeline container */}
       <div ref={timelineRef} className="relative">
@@ -87,7 +87,7 @@ const Experiences = () => {
           {/* Background track */}
           <div className="absolute inset-0 bg-neutral-800/50" />
           {/* Animated fill */}
-          <motion.div
+          <m.div
             className="absolute top-0 left-0 w-full bg-gradient-to-b from-neutral-500 via-neutral-600 to-transparent"
             style={{ height: lineHeight }}
           />
@@ -98,7 +98,7 @@ const Experiences = () => {
           {/* Background track */}
           <div className="absolute inset-0 bg-neutral-800/50" />
           {/* Animated fill */}
-          <motion.div
+          <m.div
             className="absolute top-0 left-0 w-full bg-gradient-to-b from-neutral-500 via-neutral-600 to-transparent"
             style={{ height: lineHeight }}
           />
@@ -109,10 +109,10 @@ const Experiences = () => {
           {experiencesData.map((exp, index) => (
             <div key={exp.id} className="relative">
               {/* Timeline Dot — Desktop */}
-              <motion.div
-                className="hidden md:block absolute top-[8px] w-[12px] h-[12px] rounded-full border-2 border-neutral-500 bg-black z-10"
+              <m.div
+                className="hidden md:block absolute top-[8px] size-3 rounded-full border-2 border-neutral-500 bg-neutral-950 z-10"
                 style={{ left: "calc(33.33% - 6px)" }}
-                initial={{ scale: 0, opacity: 0 }}
+                initial={{ scale: 0.95, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{
@@ -125,9 +125,9 @@ const Experiences = () => {
               />
 
               {/* Timeline Dot — Mobile */}
-              <motion.div
-                className="md:hidden absolute left-[calc(7px_-_2rem)] top-[9px] w-[9px] h-[9px] rounded-full bg-neutral-500 z-20"
-                initial={{ scale: 0, opacity: 0 }}
+              <m.div
+                className="md:hidden absolute left-[calc(7px_-_2rem)] top-[9px] size-[9px] rounded-full bg-neutral-500 z-20"
+                initial={{ scale: 0.95, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{

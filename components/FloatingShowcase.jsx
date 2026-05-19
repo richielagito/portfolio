@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import Image from "next/image";
 
 // Horizontal layout positions — images spread across the row
@@ -12,6 +12,8 @@ const SHOWCASE_POSITIONS = [
     { x: 18, y: 55 },
     { x: 65, y: 55 },
 ];
+
+const EMPTY_IMAGES = [];
 
 // Each image gets unique float parameters for organic, space-like drift
 const FLOAT_CONFIGS = [
@@ -28,7 +30,7 @@ function ShowcaseImage({ src, alt, index, imageWidth = 130, imageHeight = 90 }) 
     const config = FLOAT_CONFIGS[index % FLOAT_CONFIGS.length];
 
     return (
-        <motion.div
+        <m.div
             className="absolute select-none pointer-events-none"
             style={{
                 left: `${layout.x}%`,
@@ -44,7 +46,7 @@ function ShowcaseImage({ src, alt, index, imageWidth = 130, imageHeight = 90 }) 
             }}
         >
             {/* Floating drift animation */}
-            <motion.div
+            <m.div
                 animate={{
                     y: [0, -config.driftY, 0, config.driftY * 0.6, 0],
                     x: [0, config.driftX * 0.5, 0, -config.driftX * 0.5, 0],
@@ -70,18 +72,18 @@ function ShowcaseImage({ src, alt, index, imageWidth = 130, imageHeight = 90 }) 
 
                     <Image src={src} alt={alt} fill className="object-cover" sizes="150px" draggable={false} />
                 </div>
-            </motion.div>
-        </motion.div>
+            </m.div>
+        </m.div>
     );
 }
 
-export default function FloatingShowcase({ images = [], imageWidth = 130, imageHeight = 90 }) {
+export default function FloatingShowcase({ images = EMPTY_IMAGES, imageWidth = 130, imageHeight = 90 }) {
     if (!images || images.length === 0) return null;
 
     return (
         <div className="relative w-full h-[130px] md:h-[150px] mt-6">
             {images.map((src, index) => (
-                <ShowcaseImage key={`${src}-${index}`} src={src} alt={`showcase-${index}`} index={index} imageWidth={imageWidth} imageHeight={imageHeight} />
+                <ShowcaseImage key={src} src={src} alt={`showcase-${index}`} index={index} imageWidth={imageWidth} imageHeight={imageHeight} />
             ))}
         </div>
     );

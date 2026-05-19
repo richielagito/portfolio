@@ -1,6 +1,6 @@
 "use client";
 import React, { useCallback, useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, m } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export const FlipWords = ({ words, duration = 3000, className }) => {
@@ -14,10 +14,12 @@ export const FlipWords = ({ words, duration = 3000, className }) => {
     }, [currentWord, words]);
 
     useEffect(() => {
-        if (!isAnimating)
-            setTimeout(() => {
+        if (!isAnimating) {
+            const timer = setTimeout(() => {
                 startAnimation();
             }, duration);
+            return () => clearTimeout(timer);
+        }
     }, [isAnimating, duration, startAnimation]);
 
     return (
@@ -26,7 +28,7 @@ export const FlipWords = ({ words, duration = 3000, className }) => {
                 setIsAnimating(false);
             }}
         >
-            <motion.div
+            <m.div
                 initial={{
                     opacity: 0,
                     y: 10,
@@ -52,7 +54,7 @@ export const FlipWords = ({ words, duration = 3000, className }) => {
                 key={currentWord}
             >
                 {currentWord.split(" ").map((word, wordIndex) => (
-                    <motion.span
+                    <m.span
                         key={word + wordIndex}
                         initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
                         animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -63,7 +65,7 @@ export const FlipWords = ({ words, duration = 3000, className }) => {
                         className="inline-block whitespace-nowrap"
                     >
                         {word.split("").map((letter, letterIndex) => (
-                            <motion.span
+                            <m.span
                                 key={word + letterIndex}
                                 initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
                                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -74,12 +76,12 @@ export const FlipWords = ({ words, duration = 3000, className }) => {
                                 className="inline-block"
                             >
                                 {letter}
-                            </motion.span>
+                            </m.span>
                         ))}
                         <span className="inline-block">&nbsp;</span>
-                    </motion.span>
+                    </m.span>
                 ))}
-            </motion.div>
+            </m.div>
         </AnimatePresence>
     );
 };

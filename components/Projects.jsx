@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState, useRef } from "react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { ArrowUpRight, ArrowDown } from "lucide-react";
 import projectData from "@/lib/data/projectData.json";
 
@@ -10,7 +10,7 @@ const ProjectCard = ({ project, index }) => {
   const cardRef = useRef(null);
 
   return (
-    <motion.div
+    <m.div
       ref={cardRef}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -48,9 +48,9 @@ const ProjectCard = ({ project, index }) => {
           {project.description}
         </p>
         <div className="flex gap-2 flex-wrap mb-2">
-          {project.tech?.slice(0, 3).map((t, i) => (
+          {project.tech?.slice(0, 3).map((t) => (
             <span
-              key={i}
+              key={t}
               className="text-xs border border-neutral-800 px-2 py-1 rounded-full text-neutral-500 font-sans"
             >
               {t}
@@ -65,7 +65,7 @@ const ProjectCard = ({ project, index }) => {
               rel="noopener noreferrer"
               className="text-neutral-300 hover:text-white transition-colors flex items-center gap-1"
             >
-              Live Site <ArrowUpRight className="w-3 h-3" />
+              Live Site <ArrowUpRight className="size-3" />
             </a>
           )}
           {project.githubUrl && (
@@ -75,12 +75,12 @@ const ProjectCard = ({ project, index }) => {
               rel="noopener noreferrer"
               className="text-neutral-300 hover:text-white transition-colors flex items-center gap-1"
             >
-              GitHub <ArrowUpRight className="w-3 h-3" />
+              GitHub <ArrowUpRight className="size-3" />
             </a>
           )}
         </div>
       </div>
-    </motion.div>
+    </m.div>
   );
 };
 
@@ -91,15 +91,15 @@ const Projects = () => {
   return (
     <section id="projects" className="py-24 relative">
       <div className="flex flex-col items-start mb-20">
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-6xl md:text-8xl font-light tracking-tighter text-foreground mb-6"
         >
           Projects
-        </motion.h2>
-        <motion.p
+        </m.h2>
+        <m.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
@@ -108,7 +108,7 @@ const Projects = () => {
         >
           A collection of projects exploring the boundaries of design and
           technology.
-        </motion.p>
+        </m.p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-20">
