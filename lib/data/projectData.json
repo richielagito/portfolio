@@ -28,9 +28,9 @@
   },
   {
     "id": 4,
-    "title": "UploadItIn",
-    "description": "UploadItIn is a website build to grade essay more efficient, fast, and accurate.",
-    "imageUrl": "/uploaditin.png",
+    "title": "SCOVA",
+    "description": "SCOVA is a website build to grade essay more efficient, fast, and accurate.",
+    "imageUrl": "/scova.png",
     "webUrl": "https://uploaditin.vercel.app",
     "githubUrl": "https://github.com/richielagito/Upload_It_In",
     "tech": ["Web App", "Python", "Flask"]

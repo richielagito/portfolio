@@ -12,8 +12,8 @@
         "date": "2025",
         "role": "Scrum Master",
         "company": "Universitas Tarumanagara",
-        "description": "Led the development team for \"UploadItIn\", an automated essay grading web application. By implementing the SCRUM methodology, I facilitated agile ceremonies and sprint planning, successfully increasing development efficiency by 2-3x compared to standard workflows.",
-        "images": ["/scrum-master.jpeg", "/uploaditin.png"]
+        "description": "Led the development team for \"SCOVA\", an automated essay grading web application. By implementing the SCRUM methodology, I facilitated agile ceremonies and sprint planning, successfully increasing development efficiency by 2-3x compared to standard workflows.",
+        "images": ["/scrum-master.jpeg", "/scova.png"]
     },
     {
         "id": 3,

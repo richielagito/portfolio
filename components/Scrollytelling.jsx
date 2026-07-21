@@ -21,8 +21,8 @@ const projects = [
     },
     {
         category: "NLP · Web App",
-        title: "UploadItIn",
-        image: "/uploaditin.png",
+        title: "SCOVA",
+        image: "/scova.png",
         tagline: "Intelligent web apps powered by natural language processing.",
     },
 ];
@@ -45,9 +45,17 @@ const Chapter = ({ project, index, scrollYProgress }) => {
     // Smooth snap into position
     const textY = useTransform(scrollYProgress, [start, snapPoint, end], [20, 0, -20]);
 
-    // Tagline follows shortly after
-    const taglineOpacity = useTransform(scrollYProgress, [start + 0.1, snapPoint, snapPoint + 0.1, end], [0, 1, 1, 0]);
-    const taglineY = useTransform(scrollYProgress, [start + 0.1, snapPoint, end], [10, 0, -10]);
+    // Tagline follows shortly after title with symmetric fade-in and fade-out
+    const taglineOpacity = useTransform(
+        scrollYProgress,
+        [start + step * 0.05, snapPoint - step * 0.15, snapPoint + step * 0.15, end - step * 0.05],
+        [0, 1, 1, 0]
+    );
+    const taglineY = useTransform(
+        scrollYProgress,
+        [start + step * 0.05, snapPoint, end - step * 0.05],
+        [12, 0, -12]
+    );
 
     return (
         <m.div className="absolute inset-0 flex items-center justify-center px-6 md:px-16 pointer-events-none" style={{ opacity }}>
