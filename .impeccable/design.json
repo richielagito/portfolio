@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-17T00:00:00Z",
+  "title": "Design System: Richie Lagito",
+  "extensions": {
+    "colorMeta": {
+      "btn-primary": { "role": "primary", "displayName": "Signal White", "canonical": "#e8e8e8", "tonalRamp": ["#1b1b1b", "#303030", "#474747", "#5e5e5e", "#777777", "#919191", "#b9b9b9", "#e8e8e8"] },
+      "btn-primary-hover": { "role": "primary", "displayName": "Signal White Hover", "canonical": "#ffffff", "tonalRamp": ["#1b1b1b", "#303030", "#474747", "#5e5e5e", "#777777", "#919191", "#b9b9b9", "#ffffff"] },
+      "bg": { "role": "neutral", "displayName": "Night Ground", "canonical": "#0a0a0a", "tonalRamp": ["#0a0a0a", "#1b1b1b", "#303030", "#474747", "#5e5e5e", "#777777", "#a3a3a3", "#ededed"] },
+      "slab": { "role": "neutral", "displayName": "Lifted Slab", "canonical": "rgb(12 12 12 / 0.92)", "tonalRamp": ["#0c0c0c", "#1b1b1b", "#303030", "#474747", "#5e5e5e", "#777777", "#a3a3a3", "#ededed"] },
+      "ink": { "role": "neutral", "displayName": "Bright Ink", "canonical": "#ededed", "tonalRamp": ["#1b1b1b", "#303030", "#474747", "#5e5e5e", "#7a7a7a", "#a3a3a3", "#c8c8c8", "#ededed"] },
+      "ink-2": { "role": "neutral", "displayName": "Quiet Ink", "canonical": "#a3a3a3", "tonalRamp": ["#1b1b1b", "#303030", "#474747", "#5e5e5e", "#7a7a7a", "#a3a3a3", "#c8c8c8", "#ededed"] },
+      "ink-3": { "role": "neutral", "displayName": "Faint Ink", "canonical": "#7a7a7a", "tonalRamp": ["#1b1b1b", "#303030", "#474747", "#5e5e5e", "#7a7a7a", "#a3a3a3", "#c8c8c8", "#ededed"] },
+      "line": { "role": "neutral", "displayName": "Hairline", "canonical": "#1f1f1f", "tonalRamp": ["#0a0a0a", "#1f1f1f", "#2a2a2a", "#3d3d3d", "#555555", "#7a7a7a", "#a3a3a3", "#ededed"] },
+      "line-2": { "role": "neutral", "displayName": "Hairline Strong", "canonical": "#2a2a2a", "tonalRamp": ["#0a0a0a", "#1f1f1f", "#2a2a2a", "#3d3d3d", "#555555", "#7a7a7a", "#a3a3a3", "#ededed"] },
+      "btn": { "role": "neutral", "displayName": "Button Black", "canonical": "#161616", "tonalRamp": ["#0a0a0a", "#161616", "#1e1e1e", "#2a2a2a", "#3d3d3d", "#555555", "#7a7a7a", "#a3a3a3"] },
+      "btn-hover": { "role": "neutral", "displayName": "Button Black Hover", "canonical": "#1e1e1e", "tonalRamp": ["#0a0a0a", "#161616", "#1e1e1e", "#2a2a2a", "#3d3d3d", "#555555", "#7a7a7a", "#a3a3a3"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page title on Work and project detail pages." },
+      "headline": { "displayName": "Headline", "purpose": "The one home headline sentence, max 20ch." },
+      "headline-close": { "displayName": "Headline Close", "purpose": "Footer contact prompt, max 20ch." },
+      "title": { "displayName": "Title", "purpose": "Section and detail-block headings, plain sentence case in ink." },
+      "lead": { "displayName": "Lead", "purpose": "Bio and project description under a title, ink-2, max 52ch." },
+      "body": { "displayName": "Body", "purpose": "Detail prose and default text; ss01 and cv11 on." },
+      "small": { "displayName": "Small", "purpose": "Row descriptions, nav and inline links, meta labels, button labels." },
+      "data": { "displayName": "Data", "purpose": "Geist Mono for year, status, stack, date only; tabular numerals." }
+    },
+    "shadows": [
+      { "name": "button-rest", "value": "inset 0 1px 0 rgb(255 255 255 / 0.12), 0 0 0 1px rgb(255 255 255 / 0.06), 0 1px 2px rgb(0 0 0 / 0.6)", "purpose": "Secondary button lit top edge." },
+      { "name": "button-hover", "value": "inset 0 1px 0 rgb(255 255 255 / 0.2), 0 0 0 1px rgb(255 255 255 / 0.1), 0 1px 2px rgb(0 0 0 / 0.6)", "purpose": "Secondary button on hover." },
+      { "name": "button-primary", "value": "inset 0 1px 0 #ffffff, 0 0 0 1px rgb(255 255 255 / 0.3), 0 1px 2px rgb(0 0 0 / 0.6)", "purpose": "Primary button at rest." },
+      { "name": "button-primary-hover", "value": "inset 0 1px 0 #ffffff, 0 0 0 1px rgb(255 255 255 / 0.5), 0 1px 2px rgb(0 0 0 / 0.6)", "purpose": "Primary button on hover." },
+      { "name": "button-pressed", "value": "inset 0 1px 0 rgb(255 255 255 / 0.06), 0 0 0 1px rgb(255 255 255 / 0.08)", "purpose": "Any button while active." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Expo-out for buttons, the gutter plate reveal, and the next-project arrow." },
+      { "name": "duration-feedback", "value": "200ms", "purpose": "Button fill and shadow, row hover wash." },
+      { "name": "duration-arrow", "value": "300ms", "purpose": "Next-project arrow nudge (4px right)." },
+      { "name": "duration-reveal", "value": "500ms", "purpose": "Gutter plate clip-path unclip plus fade." },
+      { "name": "reduced-motion", "value": "transitions off; footer loop replaced by poster", "purpose": "prefers-reduced-motion behaviour." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one lit key per cluster: Email me, Get in touch.",
+      "html": "<a class=\"ds-btn ds-btn-primary\" href=\"#\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><rect width=\"20\" height=\"16\" x=\"2\" y=\"4\" rx=\"2\"/><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/></svg>Email me</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; gap: 0.5rem; height: 2.25rem; padding-inline: 0.875rem; border-radius: 0.75rem; font-family: 'Schibsted Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; line-height: 1; white-space: nowrap; text-decoration: none; transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn svg { width: 1rem; height: 1rem; flex: none; } .ds-btn:focus-visible { outline: 2px solid var(--ink, #ededed); outline-offset: 3px; } .ds-btn-primary { color: var(--bg, #0a0a0a); background: #e8e8e8; box-shadow: inset 0 1px 0 #ffffff, 0 0 0 1px rgb(255 255 255 / 0.3), 0 1px 2px rgb(0 0 0 / 0.6); } .ds-btn-primary:hover { background: #ffffff; box-shadow: inset 0 1px 0 #ffffff, 0 0 0 1px rgb(255 255 255 / 0.5), 0 1px 2px rgb(0 0 0 / 0.6); } .ds-btn-primary:active { box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 0 0 1px rgb(255 255 255 / 0.08); }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Dark key with a lit top edge: GitHub, LinkedIn, CV, Live demo, Code.",
+      "html": "<a class=\"ds-btn2\" href=\"#\">Live demo<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M7 7h10v10\"/><path d=\"M7 17 17 7\"/></svg></a>",
+      "css": ".ds-btn2 { display: inline-flex; align-items: center; gap: 0.5rem; height: 2.25rem; padding-inline: 0.875rem; border-radius: 0.75rem; font-family: 'Schibsted Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; line-height: 1; white-space: nowrap; text-decoration: none; color: var(--ink, #ededed); background: var(--btn, #161616); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.12), 0 0 0 1px rgb(255 255 255 / 0.06), 0 1px 2px rgb(0 0 0 / 0.6); transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn2 svg { width: 1rem; height: 1rem; flex: none; } .ds-btn2:hover { background: var(--btn-hover, #1e1e1e); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.2), 0 0 0 1px rgb(255 255 255 / 0.1), 0 1px 2px rgb(0 0 0 / 0.6); } .ds-btn2:active { box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 0 0 1px rgb(255 255 255 / 0.08); } .ds-btn2:focus-visible { outline: 2px solid var(--ink, #ededed); outline-offset: 3px; }"
+    },
+    {
+      "name": "Top Bar",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "RL mark home link left; Work and Contact text links right.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary\"><a class=\"ds-nav-mark\" href=\"#\" aria-label=\"Home\">RL</a><div class=\"ds-nav-links\"><a href=\"#\">Work</a><a href=\"#\">Contact</a></div></nav>",
+      "css": ".ds-nav { display: flex; height: 4rem; align-items: center; justify-content: space-between; background: var(--bg, #0a0a0a); padding-inline: 1.25rem; font-family: 'Schibsted Grotesk', ui-sans-serif, system-ui, sans-serif; } .ds-nav-mark { color: var(--ink, #ededed); font-weight: 700; font-size: 1.25rem; text-decoration: none; } .ds-nav-links { display: flex; gap: 1.25rem; font-size: 0.875rem; } .ds-nav-links a { color: var(--ink-2, #a3a3a3); text-decoration: none; transition: color 150ms; } .ds-nav-links a:hover { color: var(--ink, #ededed); } .ds-nav a:focus-visible { outline: 2px solid var(--ink, #ededed); outline-offset: 3px; border-radius: 6px; }"
+    },
+    {
+      "name": "Project Row",
+      "kind": "custom",
+      "refersTo": "project-row",
+      "description": "A dated, status-marked log entry; whole row links to the detail page.",
+      "html": "<ul class=\"ds-rows\"><li><a class=\"ds-row\" href=\"#\"><div class=\"ds-row-body\"><div class=\"ds-row-head\"><h3>UploadItIn</h3><span class=\"ds-mono\">2025</span></div><p class=\"ds-row-desc\">Automated essay grading that makes marking faster, more consistent, and more accurate.</p><p class=\"ds-row-meta ds-mono\"><span class=\"ds-live\"><span class=\"ds-dot\"></span>live</span><span>/</span><span>Python, Flask, NLP</span></p></div></a></li><li><a class=\"ds-row\" href=\"#\"><div class=\"ds-row-body\"><div class=\"ds-row-head\"><h3>Outfitology</h3><span class=\"ds-mono\">2024</span></div><p class=\"ds-row-desc\">Outfit inspiration based on your preferences and current fashion trends.</p><p class=\"ds-row-meta ds-mono\"><span>archived</span><span>/</span><span>Angular, JavaScript</span></p></div></a></li></ul>",
+      "css": ".ds-rows { list-style: none; margin: 0; padding: 0 0.75rem; background: var(--bg, #0a0a0a); font-family: 'Schibsted Grotesk', ui-sans-serif, system-ui, sans-serif; } .ds-rows li + li { border-top: 1px solid var(--line, #1f1f1f); } .ds-row { display: flex; gap: 1rem; margin-inline: -0.75rem; padding: 1rem 0.75rem; border-radius: 0.5rem; color: var(--ink, #ededed); text-decoration: none; transition: background-color 200ms; } .ds-row:hover, .ds-row:focus-visible { background: rgb(255 255 255 / 0.025); } .ds-row:focus-visible { outline: 2px solid var(--ink, #ededed); outline-offset: 3px; } .ds-row-body { min-width: 0; flex: 1; } .ds-row-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; } .ds-row-head h3 { margin: 0; font-size: 1rem; font-weight: 500; } .ds-mono { font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.75rem; color: var(--ink-3, #7a7a7a); font-variant-numeric: tabular-nums; } .ds-row-desc { margin: 0.25rem 0 0; font-size: 0.875rem; line-height: 1.625; color: var(--ink-2, #a3a3a3); } .ds-row-meta { margin: 0.5rem 0 0; display: flex; flex-wrap: wrap; align-items: center; column-gap: 0.5rem; } .ds-live { display: inline-flex; align-items: center; gap: 0.375rem; color: var(--ink, #ededed); } .ds-dot { width: 6px; height: 6px; border-radius: 9999px; background: var(--ink, #ededed); }"
+    },
+    {
+      "name": "Section Heading",
+      "kind": "custom",
+      "refersTo": "section-heading",
+      "description": "Plain sentence-case heading with an optional right-aligned aside link.",
+      "html": "<div class=\"ds-sec\"><h2>Selected work</h2><a href=\"#\">All projects (8) <svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a></div>",
+      "css": ".ds-sec { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: 0.5rem; padding: 1rem 1.25rem; background: var(--bg, #0a0a0a); font-family: 'Schibsted Grotesk', ui-sans-serif, system-ui, sans-serif; } .ds-sec h2 { margin: 0; font-size: 0.9375rem; font-weight: 600; color: var(--ink, #ededed); } .ds-sec a { display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.875rem; color: var(--ink-2, #a3a3a3); text-decoration: none; transition: color 150ms; } .ds-sec a:hover { color: var(--ink, #ededed); } .ds-sec svg { width: 0.875rem; height: 0.875rem; }"
+    },
+    {
+      "name": "Detail Meta List",
+      "kind": "custom",
+      "description": "Hairline-ruled definition list on the project page; data values in mono.",
+      "html": "<dl class=\"ds-meta\"><div><dt>Year</dt><dd class=\"ds-m\">2025</dd></div><div><dt>Role</dt><dd>Scrum Master &amp; Developer</dd></div><div><dt>Stack</dt><dd class=\"ds-m\">Python, Flask, NLP</dd></div><div><dt>Status</dt><dd class=\"ds-m\">Live</dd></div></dl>",
+      "css": ".ds-meta { margin: 0; padding: 0 1.25rem; background: var(--bg, #0a0a0a); font-family: 'Schibsted Grotesk', ui-sans-serif, system-ui, sans-serif; font-size: 0.875rem; } .ds-meta > div { display: flex; align-items: baseline; justify-content: space-between; gap: 1.5rem; padding-block: 0.625rem; border-bottom: 1px solid var(--line, #1f1f1f); } .ds-meta > div:first-child { border-top: 1px solid var(--line, #1f1f1f); } .ds-meta dt { color: var(--ink-3, #7a7a7a); } .ds-meta dd { margin: 0; text-align: right; color: var(--ink, #ededed); } .ds-meta .ds-m { font-family: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Footer Icon Link",
+      "kind": "custom",
+      "description": "36px icon-only social link with aria-label and a 5% white hover wash.",
+      "html": "<a class=\"ds-icon-link\" href=\"#\" aria-label=\"GitHub\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4\"/><path d=\"M9 18c-4.51 2-5-2-7-2\"/></svg></a>",
+      "css": ".ds-icon-link { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 0.5rem; color: var(--ink-3, #7a7a7a); background: transparent; transition: background-color 150ms, color 150ms; } .ds-icon-link svg { width: 1rem; height: 1rem; } .ds-icon-link:hover { background: rgb(255 255 255 / 0.05); color: var(--ink, #ededed); } .ds-icon-link:focus-visible { outline: 2px solid var(--ink, #ededed); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Shipping Log",
+    "overview": "The site reads like release notes, not a showcase. A single typeset column, 40rem wide, floats over a live field of grey ASCII glyphs. Projects are dated, status-marked entries separated by hairlines. The palette is monochrome: near-black ground, a three-step ink ramp, and white used only at full strength for the primary action and the \"live\" mark.\n\nDensity is calm and editorial. Each page has one large, tightly tracked headline. The rest is small, quiet type in secondary ink. Proof is carried by data set in Geist Mono (years, status, stack, dates), never by decoration. Movement belongs to the background: the ASCII field behind the column, and the ASCII video that closes every page above the contact block. Content stays still and readable on top.\n\nThe world rejects the category default: no big-claim hero over a grid of equal project cards, no colour accent, no cards.",
+    "keyCharacteristics": [
+      "One centered 40rem column. From 1024px up it becomes a slab of lifted black with hairline side borders.",
+      "A live GradientASCII field, full-viewport from 1024px up, behind the head only on smaller screens.",
+      "Monochrome ink ramp. White is reserved for the primary button and the live dot.",
+      "Hairline-separated rows, never cards.",
+      "Mono for data only.",
+      "Buttons with a lit top edge."
+    ],
+    "rules": [
+      { "name": "The No-Hue Rule", "body": "Every colour on the site is grey. Hierarchy is lightness only. The only colour anywhere is inside project screenshots.", "section": "colors" },
+      { "name": "The White Is Earned Rule", "body": "Full-strength white appears only on the primary button, the live status dot, and text selection. Everything else stays at or below `ink`.", "section": "colors" },
+      { "name": "The Mono Is Data Rule", "body": "Geist Mono is used only for values a log would stamp (year, status, stack, date) and for the ASCII field. Labels, headings, and prose are always Schibsted.", "section": "typography" },
+      { "name": "The One Big Line Rule", "body": "Each page has exactly one display- or headline-size sentence at the top, plus the footer's closing prompt. Everything between them is title size or smaller.", "section": "typography" },
+      { "name": "The Lit Edge Rule", "body": "Only buttons carry shadow, and it reads as light catching a top edge, never as an object lifting off the page. Rows, images, and the column itself stay flat.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep every surface inside the single 40rem column. From 1024px up it sits on the `slab` with `line` side borders.",
+      "Do separate entries with 1px `line` hairlines and mark live work with the 6px `ink` dot and the word \"live\" in mono.",
+      "Do set years, status, stack, and dates in Geist Mono at 0.75rem with tabular numerals, in `ink-3`.",
+      "Do frame every screenshot at 8:5, cropped from the top, with a 1px `line-2` ring.",
+      "Do use Lucide icons at 16px beside a text label. Icon-only controls are allowed only with an aria-label, as in the footer social links.",
+      "Do honour reduced motion: remove transitions and transforms, and swap the footer loop for its poster."
+    ],
+    "donts": [
+      "Don't introduce a hue. The palette is grey-only, and colour belongs only to the work shown in screenshots.",
+      "Don't put projects in cards or grids. Entries are hairline-separated rows.",
+      "Don't add shadows to anything but buttons, and on buttons keep to the lit-top-edge vocabulary.",
+      "Don't set headings, labels, or prose in mono.",
+      "Don't put the demo link on a list row. A row opens the detail page, and the demo lives there.",
+      "Don't add loaders, scroll-jacking, or entrance animations to content. Motion belongs to the ASCII field, the footer loop, and hover feedback."
+    ]
+  }
+}
