@@ -7,7 +7,11 @@
     "role": "Scrum Master & Developer",
     "status": "live",
     "featured": true,
-    "tech": ["Python", "Flask", "NLP"],
+    "tech": [
+      "Python",
+      "Flask",
+      "NLP"
+    ],
     "imageUrl": "/projects/uploaditin.webp",
     "githubUrl": "https://github.com/richielagito/Upload_It_In",
     "demoUrl": "https://uploaditin.vercel.app",
@@ -26,10 +30,16 @@
     "role": "Project Lead",
     "status": "live",
     "featured": true,
-    "tech": ["Angular", "JavaScript"],
+    "tech": [
+      "Angular",
+      "JavaScript"
+    ],
     "imageUrl": "/projects/outfitology.webp",
     "githubUrl": "https://github.com/richielagito/outfitology-frontend",
-    "demoUrl": "https://outfitology-frontend.pages.dev"
+    "demoUrl": "https://outfitology-frontend.pages.dev",
+    "problem": null,
+    "whatIDid": [],
+    "result": null
   },
   {
     "slug": "aether-lens",
@@ -39,10 +49,16 @@
     "role": "Solo developer",
     "status": "live",
     "featured": true,
-    "tech": ["HTML", "CSS"],
+    "tech": [
+      "HTML",
+      "CSS"
+    ],
     "imageUrl": "/projects/aether-lens.webp",
     "githubUrl": "https://github.com/richielagito/AetherLens",
-    "demoUrl": "https://aether-lens-aerial.vercel.app"
+    "demoUrl": "https://aether-lens-aerial.vercel.app",
+    "problem": null,
+    "whatIDid": [],
+    "result": null
   },
   {
     "slug": "kopi-kenangan",
@@ -52,9 +68,15 @@
     "role": "Solo developer",
     "status": "archived",
     "featured": true,
-    "tech": ["Next.js", "Tailwind CSS"],
+    "tech": [
+      "Next.js",
+      "Tailwind CSS"
+    ],
     "imageUrl": "/projects/kopi-kenangan.webp",
-    "githubUrl": "https://github.com/richielagito/kopi-kenangan"
+    "githubUrl": "https://github.com/richielagito/kopi-kenangan",
+    "problem": null,
+    "whatIDid": [],
+    "result": null
   },
   {
     "slug": "planty",
@@ -64,9 +86,15 @@
     "role": "Solo developer",
     "status": "archived",
     "featured": false,
-    "tech": ["HTML", "CSS"],
+    "tech": [
+      "HTML",
+      "CSS"
+    ],
     "imageUrl": "/projects/planty.webp",
-    "githubUrl": "https://github.com/richielagito/Planty"
+    "githubUrl": "https://github.com/richielagito/Planty",
+    "problem": null,
+    "whatIDid": [],
+    "result": null
   },
   {
     "slug": "elite-pizza-masterclass",
@@ -76,10 +104,16 @@
     "role": "Solo developer",
     "status": "live",
     "featured": false,
-    "tech": ["HTML", "CSS"],
+    "tech": [
+      "HTML",
+      "CSS"
+    ],
     "imageUrl": "/projects/elite-pizza-masterclass.webp",
     "githubUrl": "https://github.com/richielagito/PizzaCourse",
-    "demoUrl": "https://elitepizzamasterclass.vercel.app"
+    "demoUrl": "https://elitepizzamasterclass.vercel.app",
+    "problem": null,
+    "whatIDid": [],
+    "result": null
   },
   {
     "slug": "ube",
@@ -89,9 +123,15 @@
     "role": "Team member",
     "status": "archived",
     "featured": false,
-    "tech": ["Laravel", "PHP"],
+    "tech": [
+      "Laravel",
+      "PHP"
+    ],
     "imageUrl": "/projects/ube.webp",
-    "githubUrl": "https://github.com/Deppn/UAS-Kel-6"
+    "githubUrl": "https://github.com/Deppn/UAS-Kel-6",
+    "problem": null,
+    "whatIDid": [],
+    "result": null
   },
   {
     "slug": "gedagedi",
@@ -101,8 +141,14 @@
     "role": "Team member",
     "status": "archived",
     "featured": false,
-    "tech": ["Flutter", "Dart"],
+    "tech": [
+      "Flutter",
+      "Dart"
+    ],
     "imageUrl": "/projects/gedagedi.webp",
-    "githubUrl": "https://github.com/richielagito/projek_uts_mobile_progamming"
+    "githubUrl": "https://github.com/richielagito/projek_uts_mobile_progamming",
+    "problem": null,
+    "whatIDid": [],
+    "result": null
   }
 ]
