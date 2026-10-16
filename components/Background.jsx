@@ -21,7 +21,6 @@ export default function Background({ fontFamily }) {
                 speed={0.6}
                 clickEffect="none"
                 dpr={1.5}
-                intro={false}
                 fontFamily={fontFamily}
             />
         </div>

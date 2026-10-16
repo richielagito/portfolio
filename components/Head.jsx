@@ -4,7 +4,7 @@ import { linkIcons, Mail, FileText } from "./icons";
 
 export default function Head({ profile }) {
     return (
-        <header className="pt-8 pb-4 sm:pt-12">
+        <header className="pt-8 sm:pt-12">
             <div className="flex items-center gap-4">
                 <Image
                     src={profile.avatar}
@@ -16,23 +16,18 @@ export default function Head({ profile }) {
                 />
                 <div className="min-w-0">
                     <h1 className="text-[1.0625rem] font-semibold leading-tight">{profile.name}</h1>
-                    <p className="mt-1 flex flex-wrap items-center gap-x-2 text-sm text-ink-2">
-                        <span>{profile.role}</span>
-                        <span aria-hidden="true">·</span>
-                        <span>{profile.location}</span>
-                        {profile.available && (
-                            <>
-                                <span aria-hidden="true">·</span>
-                                <span className="inline-flex items-center gap-1.5 text-ink">
-                                    <span className="relative inline-flex h-1.5 w-1.5">
-                                        <span className="absolute inset-0 rounded-full bg-ink opacity-60 motion-safe:animate-ping" />
-                                        <span className="relative h-1.5 w-1.5 rounded-full bg-ink" />
-                                    </span>
-                                    Open to work
-                                </span>
-                            </>
-                        )}
+                    <p className="mt-1 text-sm text-ink-2">
+                        {profile.role} · {profile.location}
                     </p>
+                    {profile.available && (
+                        <p className="mt-1 inline-flex items-center gap-1.5 text-sm">
+                            <span className="relative inline-flex h-1.5 w-1.5">
+                                <span className="absolute inset-0 rounded-full bg-ink opacity-60 motion-safe:animate-ping" />
+                                <span className="relative h-1.5 w-1.5 rounded-full bg-ink" />
+                            </span>
+                            Open to work
+                        </p>
+                    )}
                 </div>
             </div>
 
