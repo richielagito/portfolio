@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Background from "@/components/Background";
 import TopBar from "@/components/TopBar";
+import Footer from "@/components/Footer";
 import profile from "@/lib/data/profile.json";
 
 const sans = Schibsted_Grotesk({
@@ -70,6 +71,7 @@ export default function RootLayout({ children }) {
         <div className="relative z-10 mx-auto min-h-dvh max-w-[40rem] px-5 sm:px-8 lg:border-x lg:border-line lg:bg-slab">
           <TopBar />
           {children}
+          <Footer />
         </div>
         <Analytics />
         <SpeedInsights />
