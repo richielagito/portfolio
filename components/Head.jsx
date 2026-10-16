@@ -1,0 +1,67 @@
+import Image from "next/image";
+import Button from "./Button";
+import { linkIcons, Mail, FileText } from "./icons";
+
+export default function Head({ profile }) {
+    return (
+        <header className="pt-8 pb-4 sm:pt-12">
+            <div className="flex items-center gap-4">
+                <Image
+                    src={profile.avatar}
+                    alt={`Portrait of ${profile.name}`}
+                    width={56}
+                    height={56}
+                    priority
+                    className="h-14 w-14 rounded-full object-cover ring-1 ring-line-2"
+                />
+                <div className="min-w-0">
+                    <h1 className="text-[1.0625rem] font-semibold leading-tight">{profile.name}</h1>
+                    <p className="mt-1 flex flex-wrap items-center gap-x-2 text-sm text-ink-2">
+                        <span>{profile.role}</span>
+                        <span aria-hidden="true">·</span>
+                        <span>{profile.location}</span>
+                        {profile.available && (
+                            <>
+                                <span aria-hidden="true">·</span>
+                                <span className="inline-flex items-center gap-1.5 text-ink">
+                                    <span className="relative inline-flex h-1.5 w-1.5">
+                                        <span className="absolute inset-0 rounded-full bg-ink opacity-60 motion-safe:animate-ping" />
+                                        <span className="relative h-1.5 w-1.5 rounded-full bg-ink" />
+                                    </span>
+                                    Open to work
+                                </span>
+                            </>
+                        )}
+                    </p>
+                </div>
+            </div>
+
+            <p className="mt-9 max-w-[18ch] text-[clamp(2rem,1.4rem+2.4vw,2.75rem)] font-medium leading-[1.04] tracking-[-0.035em]">
+                {profile.headline}
+            </p>
+            <p className="mt-4 max-w-[52ch] text-[1.0625rem] leading-relaxed text-ink-2">{profile.bio}</p>
+
+            <div className="mt-8 flex flex-wrap gap-2">
+                <Button href={`mailto:${profile.email}`} variant="primary">
+                    <Mail aria-hidden="true" />
+                    Email me
+                </Button>
+                {profile.cvUrl && (
+                    <Button href={profile.cvUrl} external>
+                        <FileText aria-hidden="true" />
+                        CV
+                    </Button>
+                )}
+                {profile.links.map(({ label, href }) => {
+                    const Icon = linkIcons[label];
+                    return (
+                        <Button key={label} href={href} external>
+                            {Icon && <Icon aria-hidden="true" />}
+                            {label}
+                        </Button>
+                    );
+                })}
+            </div>
+        </header>
+    );
+}
