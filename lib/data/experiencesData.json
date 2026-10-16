@@ -1,26 +1,23 @@
 [
-    {
-        "id": 1,
-        "date": "2025 - Present",
-        "role": "Fullstack Developer Intern",
-        "company": "Pusat Data Dan Teknologi Informasi UNTAR",
-        "description": "Contributed to the development of the LINTAR academic management system by modernizing the interface for enhanced responsiveness and user experience. I also optimized backend security and system performance to ensure efficient execution, while collaborating effectively within a cross-functional team to deliver robust technical solutions.",
-        "images": ["/meeting-pusda.jpeg", "/developing-lintar.jpeg", "/meeting-pusda2.jpeg"]
-    },
-    {
-        "id": 2,
-        "date": "2025",
-        "role": "Scrum Master",
-        "company": "Universitas Tarumanagara",
-        "description": "Led the development team for \"UploadItIn\", an automated essay grading web application. By implementing the SCRUM methodology, I facilitated agile ceremonies and sprint planning, successfully increasing development efficiency by 2-3x compared to standard workflows.",
-        "images": ["/scrum-master.jpeg", "/uploaditin.png"]
-    },
-    {
-        "id": 3,
-        "date": "2024",
-        "role": "Project Lead",
-        "company": "Universitas Tarumanagara",
-        "description": "Orchestrated the end-to-end development of \"Outfitology\", a fashion inspiration platform, from concept to deployment. I managed team resources and workflows to ensure high productivity, overseeing the full product lifecycle to ensure deliverables met quality standards.",
-        "images": ["/outfitology.png"]
-    }
+  {
+    "id": 1,
+    "date": "2025 - Present",
+    "role": "Fullstack Developer Intern",
+    "company": "Pusat Data Dan Teknologi Informasi UNTAR",
+    "description": "Contributed to the development of the LINTAR academic management system by modernizing the interface for enhanced responsiveness and user experience. I also optimized backend security and system performance to ensure efficient execution, while collaborating effectively within a cross-functional team to deliver robust technical solutions."
+  },
+  {
+    "id": 2,
+    "date": "2025",
+    "role": "Scrum Master",
+    "company": "Universitas Tarumanagara",
+    "description": "Led the development team for \"UploadItIn\", an automated essay grading web application. By implementing the SCRUM methodology, I facilitated agile ceremonies and sprint planning, successfully increasing development efficiency by 2-3x compared to standard workflows."
+  },
+  {
+    "id": 3,
+    "date": "2024",
+    "role": "Project Lead",
+    "company": "Universitas Tarumanagara",
+    "description": "Orchestrated the end-to-end development of \"Outfitology\", a fashion inspiration platform, from concept to deployment. I managed team resources and workflows to ensure high productivity, overseeing the full product lifecycle to ensure deliverables met quality standards."
+  }
 ]

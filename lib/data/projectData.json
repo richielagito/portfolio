@@ -1,74 +1,108 @@
 [
   {
-    "id": 1,
-    "title": "Aether Lens",
-    "description": "Aether Lens is a simple and modern landing page for an aerial cinematography company.",
-    "imageUrl": "/aetherlens.png",
-    "webUrl": "https://aether-lens-aerial.vercel.app",
-    "githubUrl": "https://github.com/richielagito/AetherLens",
-    "tech": ["Landing Page", "HTML", "CSS"]
-  },
-  {
-    "id": 2,
-    "title": "Kopi Kenangan",
-    "description": "Kopi Kenangan is a modern, interactive landing page for Kopi Kenangan, showcasing their brand and products through engaging storytelling.",
-    "imageUrl": "/kopi-kenangan.png",
-    "webUrl": null,
-    "githubUrl": "https://github.com/richielagito/kopi-kenangan",
-    "tech": ["Scrolly-telling", "Next.js", "Tailwind CSS"]
-  },
-  {
-    "id": 3,
-    "title": "Planty",
-    "description": "Planty is a simple, modern and responsive SaaS dashboard for organizing your plant care.",
-    "imageUrl": "/planty.png",
-    "webUrl": null,
-    "githubUrl": "https://github.com/richielagito/Planty",
-    "tech": ["SaaS Dashboard", "HTML", "CSS"]
-  },
-  {
-    "id": 4,
+    "slug": "uploaditin",
     "title": "UploadItIn",
-    "description": "UploadItIn is a website build to grade essay more efficient, fast, and accurate.",
-    "imageUrl": "/uploaditin.png",
-    "webUrl": "https://uploaditin.vercel.app",
+    "description": "Automated essay grading that makes marking faster, more consistent, and more accurate.",
+    "year": 2025,
+    "role": "Scrum Master & Developer",
+    "status": "live",
+    "featured": true,
+    "tech": ["Python", "Flask", "NLP"],
+    "imageUrl": "/projects/uploaditin.webp",
     "githubUrl": "https://github.com/richielagito/Upload_It_In",
-    "tech": ["Web App", "Python", "Flask"]
+    "demoUrl": "https://uploaditin.vercel.app",
+    "problem": "Lecturers spend hours grading essays by hand, and scores drift between graders.",
+    "whatIDid": [
+      "Led the team as Scrum Master: sprint planning, stand-ups, and reviews.",
+      "Built parts of the grading pipeline and the upload flow."
+    ],
+    "result": "Delivered 2–3× faster than the team's usual workflow."
   },
   {
-    "id": 5,
+    "slug": "outfitology",
     "title": "Outfitology",
-    "description": "Outfitology is a web app that provides outfit inspiration based on user preferences and current fashion trends.",
-    "imageUrl": "/outfitology.png",
-    "webUrl": "https://outfitology-frontend.pages.dev",
+    "description": "Outfit inspiration based on your preferences and current fashion trends.",
+    "year": 2024,
+    "role": "Project Lead",
+    "status": "live",
+    "featured": true,
+    "tech": ["Angular", "JavaScript"],
+    "imageUrl": "/projects/outfitology.webp",
     "githubUrl": "https://github.com/richielagito/outfitology-frontend",
-    "tech": ["Web App", "Angular", "JavaScript"]
+    "demoUrl": "https://outfitology-frontend.pages.dev"
   },
   {
-    "id": 6,
+    "slug": "aether-lens",
+    "title": "Aether Lens",
+    "description": "A clean, modern landing page for an aerial cinematography company.",
+    "year": 2024,
+    "role": "Solo developer",
+    "status": "live",
+    "featured": true,
+    "tech": ["HTML", "CSS"],
+    "imageUrl": "/projects/aether-lens.webp",
+    "githubUrl": "https://github.com/richielagito/AetherLens",
+    "demoUrl": "https://aether-lens-aerial.vercel.app"
+  },
+  {
+    "slug": "kopi-kenangan",
+    "title": "Kopi Kenangan",
+    "description": "An interactive scrollytelling landing page for the Kopi Kenangan brand.",
+    "year": 2025,
+    "role": "Solo developer",
+    "status": "archived",
+    "featured": true,
+    "tech": ["Next.js", "Tailwind CSS"],
+    "imageUrl": "/projects/kopi-kenangan.webp",
+    "githubUrl": "https://github.com/richielagito/kopi-kenangan"
+  },
+  {
+    "slug": "planty",
+    "title": "Planty",
+    "description": "A simple, responsive SaaS dashboard for organizing plant care.",
+    "year": 2024,
+    "role": "Solo developer",
+    "status": "archived",
+    "featured": false,
+    "tech": ["HTML", "CSS"],
+    "imageUrl": "/projects/planty.webp",
+    "githubUrl": "https://github.com/richielagito/Planty"
+  },
+  {
+    "slug": "elite-pizza-masterclass",
     "title": "Elite Pizza Masterclass",
-    "description": "Elite Pizza Masterclass is a landing page for booking a pizza course.",
-    "imageUrl": "/elitepizzamasterclass.png",
-    "webUrl": "https://elitepizzamasterclass.vercel.app",
+    "description": "A landing page for booking a pizza-making course.",
+    "year": 2024,
+    "role": "Solo developer",
+    "status": "live",
+    "featured": false,
+    "tech": ["HTML", "CSS"],
+    "imageUrl": "/projects/elite-pizza-masterclass.webp",
     "githubUrl": "https://github.com/richielagito/PizzaCourse",
-    "tech": ["Landing Page", "HTML", "CSS"]
+    "demoUrl": "https://elitepizzamasterclass.vercel.app"
   },
   {
-    "id": 7,
+    "slug": "ube",
     "title": "Ube",
-    "description": "Ube is an e-commerce website for selling various products online.",
-    "imageUrl": "/ube.png",
-    "webUrl": null,
-    "githubUrl": "https://github.com/Deppn/UAS-Kel-6",
-    "tech": ["E-commerce", "Laravel", "PHP"]
+    "description": "An e-commerce site for selling products online.",
+    "year": 2024,
+    "role": "Team member",
+    "status": "archived",
+    "featured": false,
+    "tech": ["Laravel", "PHP"],
+    "imageUrl": "/projects/ube.webp",
+    "githubUrl": "https://github.com/Deppn/UAS-Kel-6"
   },
   {
-    "id": 8,
+    "slug": "gedagedi",
     "title": "Gedagedi",
-    "description": "Gedagedi is a social media mobile application that let users post threads and interact with other users.",
-    "imageUrl": "/gedagedi.png",
-    "webUrl": null,
-    "githubUrl": "https://github.com/richielagito/projek_uts_mobile_progamming",
-    "tech": ["Mobile App", "Flutter", "Dart"]
+    "description": "A social media app for posting threads and talking with other users.",
+    "year": 2024,
+    "role": "Team member",
+    "status": "archived",
+    "featured": false,
+    "tech": ["Flutter", "Dart"],
+    "imageUrl": "/projects/gedagedi.webp",
+    "githubUrl": "https://github.com/richielagito/projek_uts_mobile_progamming"
   }
 ]
