@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import Button from "@/components/Button";
 import { linkIcons } from "@/components/icons";
 import projects from "@/lib/data/projectData.json";
@@ -46,8 +46,8 @@ export default async function ProjectPage({ params }) {
 
     return (
         <main className="pt-8 sm:pt-12">
-            <Link href="/work" className="text-sm text-ink-2 transition-colors hover:text-ink">
-                ← All work
+            <Link href="/work" className="inline-flex items-center gap-1 text-sm text-ink-2 transition-colors hover:text-ink">
+                <ArrowLeft aria-hidden="true" className="h-3.5 w-3.5" /> All work
             </Link>
 
             <h1 className="mt-6 text-[clamp(2rem,1.4rem+2.4vw,2.75rem)] font-medium leading-[1.04] tracking-[-0.035em]">
@@ -55,11 +55,11 @@ export default async function ProjectPage({ params }) {
             </h1>
             <p className="mt-3 max-w-[52ch] text-[1.0625rem] leading-relaxed text-ink-2">{project.description}</p>
 
-            <dl className="mt-8 grid grid-cols-2 gap-px overflow-hidden rounded-xl bg-line ring-1 ring-line sm:grid-cols-4">
+            <dl className="mt-8 border-t border-line">
                 {meta.map(([label, value]) => (
-                    <div key={label} className="bg-bg px-4 py-3">
-                        <dt className="text-xs text-ink-3">{label}</dt>
-                        <dd className="mt-1 text-sm">{value}</dd>
+                    <div key={label} className="flex items-baseline justify-between gap-6 border-b border-line py-2.5">
+                        <dt className="text-sm text-ink-3">{label}</dt>
+                        <dd className={`text-right text-sm ${label === "Role" ? "" : "font-mono tabular-nums"}`}>{value}</dd>
                     </div>
                 ))}
             </dl>
@@ -118,8 +118,9 @@ export default async function ProjectPage({ params }) {
                 className="group mt-16 flex items-baseline justify-between gap-4 border-y border-line py-5"
             >
                 <span className="text-sm text-ink-3">Next project</span>
-                <span className="font-medium transition-transform duration-300 ease-out group-hover:-translate-x-1">
-                    {next.title} →
+                <span className="inline-flex items-center gap-1.5 font-medium">
+                    {next.title}
+                    <ArrowRight aria-hidden="true" className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-1 motion-reduce:transition-none motion-reduce:group-hover:translate-x-0" />
                 </span>
             </Link>
         </main>

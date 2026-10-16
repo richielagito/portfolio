@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import Head from "@/components/Head";
 import Section from "@/components/Section";
 import ProjectRow from "@/components/ProjectRow";
@@ -16,8 +17,8 @@ export default function Home() {
                 id="work"
                 title="Selected work"
                 aside={
-                    <Link href="/work" className="text-sm text-ink-2 transition-colors hover:text-ink">
-                        All projects ({projects.length}) →
+                    <Link href="/work" className="inline-flex items-center gap-1 text-sm text-ink-2 transition-colors hover:text-ink">
+                        All projects ({projects.length}) <ArrowRight aria-hidden="true" className="h-3.5 w-3.5" />
                     </Link>
                 }
             >

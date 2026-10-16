@@ -4,15 +4,41 @@
   "location": "Jakarta, Indonesia",
   "timezone": "UTC+7",
   "available": true,
-  "headline": "I build web apps end to end and ship them.",
+  "headline": "I build web apps end\u00a0to\u00a0end and ship them.",
   "bio": "IT student at Universitas Tarumanagara and fullstack intern at PUSDATIN UNTAR.",
   "avatar": "/avatar.webp",
   "email": "richielagito1@gmail.com",
   "cvUrl": null,
   "links": [
-    { "label": "GitHub", "href": "https://github.com/richielagito" },
-    { "label": "LinkedIn", "href": "https://www.linkedin.com/in/richie-lagito-8769bb226" },
-    { "label": "Instagram", "href": "https://www.instagram.com/richielagito_/" }
+    {
+      "label": "GitHub",
+      "href": "https://github.com/richielagito"
+    },
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/richie-lagito-8769bb226"
+    },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/richielagito_/"
+    }
   ],
-  "stack": ["React", "Next.js", "Angular", "Vue.js", "Tailwind", "JavaScript", "TypeScript", "Node.js", "Python", "Flask", "Laravel", "SQL", "NoSQL", "Flutter", "Figma", "Git"]
+  "stack": [
+    "React",
+    "Next.js",
+    "Angular",
+    "Vue.js",
+    "Tailwind",
+    "JavaScript",
+    "TypeScript",
+    "Node.js",
+    "Python",
+    "Flask",
+    "Laravel",
+    "SQL",
+    "NoSQL",
+    "Flutter",
+    "Figma",
+    "Git"
+  ]
 }

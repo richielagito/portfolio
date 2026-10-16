@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import ProjectRow from "@/components/ProjectRow";
 import projects from "@/lib/data/projectData.json";
 
@@ -10,13 +11,14 @@ export const metadata = {
 export default function WorkIndex() {
     return (
         <main className="pt-8 sm:pt-12">
-            <Link href="/" className="text-sm text-ink-2 transition-colors hover:text-ink">
-                ← Home
+            <Link href="/" className="inline-flex items-center gap-1 text-sm text-ink-2 transition-colors hover:text-ink">
+                <ArrowLeft aria-hidden="true" className="h-3.5 w-3.5" /> Home
             </Link>
             <h1 className="mt-6 text-[clamp(2rem,1.4rem+2.4vw,2.75rem)] font-medium leading-[1.04] tracking-[-0.035em]">Work</h1>
             <p className="mt-3 text-ink-2">
                 {projects.length} projects. Open any of them for the role, the stack, and a demo.
             </p>
+            <h2 className="sr-only">All projects</h2>
             <ul className="mt-8">
                 {projects.map((project) => (
                     <ProjectRow key={project.slug} project={project} />

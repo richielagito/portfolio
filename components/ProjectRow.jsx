@@ -27,7 +27,14 @@ export default function ProjectRow({ project }) {
                     </div>
                     <p className="mt-1 text-sm leading-relaxed text-ink-2">{description}</p>
                     <p className="mt-2 flex flex-wrap items-center gap-x-2 font-mono text-xs text-ink-3">
-                        <span className={status === "live" ? "text-ink-2" : undefined}>{status}</span>
+                        {status === "live" ? (
+                            <span className="inline-flex items-center gap-1.5 text-ink">
+                                <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-ink" />
+                                live
+                            </span>
+                        ) : (
+                            <span>{status}</span>
+                        )}
                         <span aria-hidden="true">/</span>
                         <span>{tech.join(", ")}</span>
                     </p>

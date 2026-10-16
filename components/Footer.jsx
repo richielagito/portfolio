@@ -5,7 +5,7 @@ import profile from "@/lib/data/profile.json";
 
 export default function Footer() {
     return (
-        <footer id="contact" className="mt-24 pb-10 sm:mt-28">
+        <footer id="contact" className="mt-16 pb-10 sm:mt-20">
             <FooterVideo />
 
             <h2 className="mt-10 max-w-[20ch] text-[clamp(1.625rem,1.2rem+1.6vw,2.125rem)] font-medium leading-[1.1] tracking-[-0.03em]">

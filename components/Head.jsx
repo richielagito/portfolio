@@ -21,17 +21,14 @@ export default function Head({ profile }) {
                     </p>
                     {profile.available && (
                         <p className="mt-1 inline-flex items-center gap-1.5 text-sm">
-                            <span className="relative inline-flex h-1.5 w-1.5">
-                                <span className="absolute inset-0 rounded-full bg-ink opacity-60 motion-safe:animate-ping" />
-                                <span className="relative h-1.5 w-1.5 rounded-full bg-ink" />
-                            </span>
+                            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-ink" />
                             Open to work
                         </p>
                     )}
                 </div>
             </div>
 
-            <p className="mt-9 max-w-[18ch] text-[clamp(2rem,1.4rem+2.4vw,2.75rem)] font-medium leading-[1.04] tracking-[-0.035em]">
+            <p className="mt-9 max-w-[20ch] text-[clamp(2rem,1.5rem+1.8vw,2.5rem)] font-medium leading-[1.04] tracking-[-0.035em]">
                 {profile.headline}
             </p>
             <p className="mt-4 max-w-[52ch] text-[1.0625rem] leading-relaxed text-ink-2">{profile.bio}</p>
@@ -47,7 +44,7 @@ export default function Head({ profile }) {
                         CV
                     </Button>
                 )}
-                {profile.links.map(({ label, href }) => {
+                {profile.links.filter(({ label }) => label !== "Instagram").map(({ label, href }) => {
                     const Icon = linkIcons[label];
                     return (
                         <Button key={label} href={href} external>
