@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const POSTER = "/videos/ascii-poster.webp";
 
-// Decorative loop. Nothing (not even the poster) loads until the footer is within 300px;
+// Decorative loop that fills its positioned parent. Nothing (not even the poster) loads until the footer is within 300px;
 // it plays only while actually on screen, and shows the poster only under reduced motion.
 export default function FooterVideo() {
     const ref = useRef(null);
@@ -43,7 +43,7 @@ export default function FooterVideo() {
         <div
             ref={ref}
             aria-hidden="true"
-            className="-mx-5 aspect-[1280/712] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,#000_28%)] sm:-mx-8"
+            className="absolute inset-0 [mask-image:linear-gradient(to_bottom,transparent,#000_28%)]"
         >
             {near && still && <img src={POSTER} alt="" className="h-full w-full object-cover" />}
             {near && !still && (
