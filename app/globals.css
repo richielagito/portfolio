@@ -45,7 +45,7 @@ body {
 @media (min-width: 64rem) {
   body:has([data-arc-head]) .slab {
     top: var(--arc-top);
-    mask-image: linear-gradient(to bottom, transparent, #000 5rem);
+    mask-image: linear-gradient(to bottom, transparent, var(--bg) 5rem);
   }
 }
 
