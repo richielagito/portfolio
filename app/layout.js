@@ -68,7 +68,9 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${sans.variable} ${mono.variable}`}>
       <body className="relative min-h-dvh antialiased">
         <Background fontFamily={mono.style.fontFamily} />
-        <div className="relative z-10 mx-auto min-h-dvh max-w-[40rem] px-5 sm:px-8 lg:border-x lg:border-line lg:bg-slab">
+        <div className="relative z-10 mx-auto min-h-dvh max-w-[40rem] px-5 sm:px-8">
+          {/* Desktop slab. On pages with an arc head it starts under the ASCII arc (globals.css). */}
+          <div aria-hidden="true" className="slab pointer-events-none absolute inset-0 -z-10 hidden border-x border-line bg-slab lg:block" />
           <TopBar />
           {children}
           <Footer />

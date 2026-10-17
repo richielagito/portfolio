@@ -11,6 +11,8 @@
   --btn: #161616;
   --btn-hover: #1e1e1e;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Where the GradientASCII horizon arc sits inside the column on desktop (fixed, full-viewport). */
+  --arc-top: max(52vh, 29rem);
 }
 
 @theme inline {
@@ -38,6 +40,13 @@ body {
   font-family: var(--font-sans);
   font-feature-settings: "ss01", "cv11";
   text-rendering: optimizeLegibility;
+}
+
+@media (min-width: 64rem) {
+  body:has([data-arc-head]) .slab {
+    top: var(--arc-top);
+    mask-image: linear-gradient(to bottom, transparent, #000 5rem);
+  }
 }
 
 ::selection {
@@ -78,6 +87,7 @@ p {
     font-weight: 500;
     line-height: 1;
     white-space: nowrap;
+    text-shadow: none;
     color: var(--ink);
     background: var(--btn);
     box-shadow:

@@ -4,7 +4,7 @@ import { linkIcons, Mail, FileText } from "./icons";
 
 export default function Head({ profile }) {
     return (
-        <header className="pt-8 sm:pt-12">
+        <header data-arc-head className="pt-8 sm:pt-12 lg:min-h-[calc(var(--arc-top)-4rem)] lg:[text-shadow:0_1px_2px_rgb(0_0_0/0.6),0_0_18px_rgb(10_10_10/0.9)]">
             <div className="flex items-center gap-4">
                 <Image
                     src={profile.avatar}

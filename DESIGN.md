@@ -177,7 +177,7 @@ A strictly achromatic palette. Hierarchy comes from lightness steps, not hue.
 ## Layout
 
 - **Column:** one centered column, at most 40rem wide, with a 20px gutter (32px from 640px up). Every page and the footer live inside it.
-- **From 1024px up:** the column becomes the `slab` surface with 1px `line` borders on the left and right, and the ASCII field fills the viewport behind it. Below 1024px the field covers only the top 34rem at 60% opacity, masked to black by 95%, so it sits behind the head.
+- **From 1024px up:** the column becomes the `slab` surface with 1px `line` borders on the left and right, and the ASCII field fills the viewport behind it. On the home page the head stays transparent over the field's glowing sky. The slab (and its borders) starts under the horizon arc at `--arc-top: max(52vh, 29rem)` and fades in over 5rem, so the feed begins beneath the arc. Other pages keep the slab from the top. Head text carries a soft dark text-shadow there; buttons never do. Below 1024px the field covers only the top 34rem at 60% opacity, masked to black by 95%, so it sits behind the head.
 - **Top bar:** 64px tall, with the RL mark (28px) on the left and Work and Contact on the right.
 - **Rhythm:** page tops have 32px of padding (48px from 640px up). Headline to bio is 16px, and bio to buttons is 32px. Sections start 56px apart (64px from 640px up), and a heading sits 8px above its list. Detail blocks are 48px apart. The footer starts 64px below the content (80px from 640px up).
 - **Rows:** 16px vertical padding for project rows, 14px for experience rows, and 10px for the detail meta list.
