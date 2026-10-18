@@ -1,7 +1,7 @@
 [
   {
     "slug": "uploaditin",
-    "title": "UploadItIn",
+    "title": "SCOVA",
     "description": "Automated essay grading that makes marking faster, more consistent, and more accurate.",
     "year": 2025,
     "role": "Scrum Master & Developer",
@@ -12,7 +12,7 @@
       "Flask",
       "NLP"
     ],
-    "imageUrl": "/projects/uploaditin.webp",
+    "imageUrl": "/projects/scova.webp",
     "githubUrl": "https://github.com/richielagito/Upload_It_In",
     "demoUrl": "https://uploaditin.vercel.app",
     "problem": "Lecturers spend hours grading essays by hand, and scores drift between graders.",
