@@ -8,14 +8,14 @@ export default function ProjectRow({ project }) {
         <li className="group relative border-t border-line first:border-t-0">
             <Link
                 href={`/work/${slug}`}
-                className="-mx-3 flex gap-4 rounded-lg px-3 py-4 transition-colors duration-200 hover:bg-white/[0.025] focus-visible:bg-white/[0.025]"
+                className="-mx-3 flex flex-col gap-4 rounded-lg px-3 py-4 transition-colors duration-200 hover:bg-white/[0.025] focus-visible:bg-white/[0.025] xl:flex-row"
             >
                 {imageUrl && (
                     <ProjectImage
                         src={imageUrl}
                         alt=""
-                        sizes="72px"
-                        className="mt-0.5 w-[4.5rem] flex-none self-start xl:hidden"
+                        sizes="(min-width: 640px) 576px, calc(100vw - 40px)"
+                        className="w-full flex-none self-start xl:hidden"
                     />
                 )}
                 <div className="min-w-0 flex-1">
