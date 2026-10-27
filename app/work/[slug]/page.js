@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import ProjectImage from "@/components/ProjectImage";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import Button from "@/components/Button";
@@ -82,14 +82,12 @@ export default async function ProjectPage({ params }) {
             )}
 
             {project.imageUrl && (
-                <Image
+                <ProjectImage
                     src={project.imageUrl}
                     alt={`Screenshot of ${project.title}`}
-                    width={1280}
-                    height={800}
                     sizes="(min-width: 40rem) 36rem, 100vw"
                     priority
-                    className="mt-10 aspect-[8/5] w-full rounded-xl object-cover object-top ring-1 ring-line-2"
+                    className="mt-10 w-full"
                 />
             )}
 
