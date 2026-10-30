@@ -1,5 +1,24 @@
 [
   {
+    "slug": "voxora",
+    "title": "Voxora",
+    "description": "A game asset marketplace inspired by the Indonesian archipelago, helping developers discover 3D assets, environment kits, and audio for their next world.",
+    "year": 2026,
+    "role": "Developer",
+    "status": "live",
+    "featured": true,
+    "tech": [
+      "Next.js",
+      "React",
+      "TypeScript"
+    ],
+    "imageUrl": "/projects/voxora.webp",
+    "demoUrl": "https://voxora-khaki-ten.vercel.app/",
+    "problem": null,
+    "whatIDid": [],
+    "result": null
+  },
+  {
     "slug": "uploaditin",
     "title": "SCOVA",
     "description": "Automated essay grading that makes marking faster, more consistent, and more accurate.",
